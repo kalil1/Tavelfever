@@ -3,12 +3,48 @@
   <head>
     <title>Travelfever</title>
     <%= csrf_meta_tags %>
-
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <style media="screen">
+    .ddd {
+      border-color: black;
+    }
+  </style>
+
   <body>
+    <nav class="navbar navbar-default">
+
+      <div class="container">
+
+        <div class="navbar-header">
+          <%= link_to "Traval Fever", root_path, class: "navbar-brand" %>
+        </div>
+
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Log In", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+
+          <% if user_signed_in? %>
+            <li><%= link_to "Make A List", new_checklist_path %></li>
+            <li><%= link_to "Profile", current_user %></li>
+          <% end %>
+
+        </ul>
+
+      </div>
+
+    </nav>
+
     <%= yield %>
   </body>
 </html>
