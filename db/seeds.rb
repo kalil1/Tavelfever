@@ -20,7 +20,7 @@ activities = [
 
 ]
 activities.each do |activity|
-Activity.create(:id => activity[0], :name => activity[1])
+Activity.create(:id => activity[0], :name => activity[1], :selected => false)
 end
 
 

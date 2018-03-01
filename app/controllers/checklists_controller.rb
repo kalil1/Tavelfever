@@ -1,5 +1,6 @@
 class ChecklistsController < ApplicationController
   before_action :set_checklist, only: [:show, :edit, :update, :destroy]
+  before_action :set_activity, only: [:show, :new, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
 
   # GET /checklists
@@ -63,6 +64,10 @@ class ChecklistsController < ApplicationController
   end
 
   private
+
+  def set_activity
+      @activity = Activity.all
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_checklist
       @checklist = Checklist.find(params[:id])
