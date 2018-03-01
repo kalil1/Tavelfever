@@ -4,6 +4,9 @@
   <strong>Name:</strong>
   <%= @activity.name %>
 </p>
-
+<% @items.each do |fo| %>
+<%= fo.iname %> <br>
+<% end %>
+<%= render 'items/show' %>
 <%= link_to 'Edit', edit_activity_path(@activity) %> |
 <%= link_to 'Back', activities_path %>

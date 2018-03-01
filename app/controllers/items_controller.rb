@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   # GET /items
   # GET /items.json
@@ -25,6 +26,7 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
+    @item.activity_id = @activity.id
 
     respond_to do |format|
       if @item.save
@@ -62,6 +64,10 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def set_activity
+    @activity = Activity.find(params[:activity_id])
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_item
       @item = Item.find(params[:id])

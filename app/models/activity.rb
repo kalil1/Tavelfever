@@ -1,3 +1,3 @@
 class Activity < ApplicationRecord
-  has_one :checklist
+  has_many :items
 end

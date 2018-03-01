@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   # GET /activities
@@ -10,6 +11,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/1
   # GET /activities/1.json
   def show
+   @items = Item.where(activity_id: @activity.id)
   end
 
   # GET /activities/new
@@ -62,6 +64,10 @@ class ActivitiesController < ApplicationController
   end
 
   private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_activity
       @activity = Activity.find(params[:id])
