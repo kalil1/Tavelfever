@@ -28,16 +28,16 @@ class ChecklistsController < ApplicationController
   def create
     @checklist = current_user.checklists.build(checklist_params)
 
-    respond_to do |format|
+
       if @checklist.save
-        format.html { redirect_to root_path, notice: 'Checklist was successfully created.' }
-        format.json { render :show, status: :created, location: @checklist }
-      else
-        format.html { render :new }
-        format.json { render json: @checklist.errors, status: :unprocessable_entity }
+        params[:activities].each do |activity_id|
+          Item.where(activity_id: activity_id).each do |item|
+            @checklist.items << item
+        redirect_to root_path, notice: 'Checklist was successfully created.'
+          end
+        end
       end
     end
-  end
 
   # PATCH/PUT /checklists/1
   # PATCH/PUT /checklists/1.json
@@ -66,7 +66,7 @@ class ChecklistsController < ApplicationController
   private
 
   def set_activity
-      @activity = Activity.all
+      @activities = Activity.all
   end
     # Use callbacks to share common setup or constraints between actions.
     def set_checklist
@@ -75,7 +75,7 @@ class ChecklistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def checklist_params
-      params.require(:checklist).permit(:list_name)
+      params.require(:checklist).permit(:list_name, :activities => [])
     end
 
 end

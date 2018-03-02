@@ -16,6 +16,10 @@
     <%= form.text_field :list_name, id: :checklist_list_name %>
   </div>
 
+  <% @activities.each do |activity| %>
+    <input type="checkbox" name="activities[]" value="<%= activity.id %>"><%= activity.name %>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
