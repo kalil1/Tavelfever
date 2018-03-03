@@ -16,11 +16,12 @@
     <!--FONT awsome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
   </head>
 
   <!-- <style media="screen">
@@ -51,8 +52,55 @@
       </div>
     </nav>
 
+      <!-- end dropdown navbar -->
+
+
+
+
+
+
+
+<!-- <div style="height: 100px"></div> -->
+
+      <!-- FOOTER -->
+          <footer class="page-footer purple darken-4">
+            <div class="container">
+              <div class="row">
+                <div class="col l6 s12">
+                  <h5 class="white-text">Contact</h5>
+                  <p class="grey-text text-lighten-4">travel@fever.com</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                  <h5 class="white-text">Follow us</h5>
+                  <ul>
+                      <div style="font-size:2em; grey-text text-lighten-3 ">
+                    <i class="fab fa-instagram"></i></a>
+                    <i class="fab fa-facebook-square"></i></a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-copyright">
+              <div class="container">
+                © 2018 Copyright
+                <!-- <a class="grey-text text-lighten-4 right" href="#!">Have a great trip</a> -->
+              </div>
+            </div>
+          </footer>
+
+          <!-- FOOTER END -->
+
+
+
+
     <%= yield %>
 
+    <!-- <script>
+    $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+
+  </script> -->
 
   </body>
 </html>
