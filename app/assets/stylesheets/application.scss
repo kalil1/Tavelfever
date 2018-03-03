@@ -12,6 +12,24 @@ body {
 main {
   flex: 1 0 auto;
 }
-.page-footer {
-  bottom: 0;
+
+.user-show {
+  background-image: url("http://allswalls.com/images/hills-wallpaper-1.jpg");
+  min-height: 100vh;
+  height: auto !important;
+  height: 100%;
+  margin-bottom: 200px;
+  // background-image: url("http://allswalls.com/images/hills-wallpaper-1.jpg")
 }
+.page-footer {
+ height: 200px;
+}
+
+
+// User controllr
+
+.icon {
+  margin: 2px 7px 0 0;
+}
+
+// end user controller
