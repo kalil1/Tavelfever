@@ -18,9 +18,21 @@ main {
   min-height: 100vh;
   height: auto !important;
   height: 100%;
-  margin-bottom: 200px;
+  // margin-bottom: 200px;
   // background-image: url("http://allswalls.com/images/hills-wallpaper-1.jpg")
 }
+
+.checklists-show {
+  background-image: url("http://allswalls.com/images/hills-wallpaper-1.jpg");
+  min-height: 100vh;
+  height: auto !important;
+  height: 100%;
+  // margin-bottom: 200px;
+  // background-image: url("http://allswalls.com/images/hills-wallpaper-1.jpg")
+}
+
+
+
 .page-footer {
  height: 200px;
 }
@@ -30,6 +42,15 @@ main {
 
 .icon {
   margin: 2px 7px 0 0;
+}
+
+
+.current-list {
+    float: left;
+}
+
+.cards {
+    float: right;
 }
 
 // end user controller
