@@ -12,6 +12,7 @@ class ChecklistsController < ApplicationController
   # GET /checklists/1
   # GET /checklists/1.json
   def show
+
   end
 
   # GET /checklists/new
@@ -30,13 +31,14 @@ class ChecklistsController < ApplicationController
 
     respond_to do |format|
       if @checklist.save
+        format.html { redirect_to checklists_path, notice: 'Checklist was successfully created.' }
+        format.json { render :show, status: :created, location: @checklist }
+
         params[:activities].each do |activity_id|
           Item.where(activity_id: activity_id).each do |item|
             @checklist.items << item
           end
         end
-        format.html { redirect_to root_path, notice: 'Checklist was successfully created.' }
-        format.json { render :show, status: :created, location: @checklist }
       else
         format.html { render :new }
         format.json { render json: @checklist.errors, status: :unprocessable_entity }
@@ -70,7 +72,7 @@ class ChecklistsController < ApplicationController
 
   private
 
-  def set_activity
+def set_activity
       @activities = Activity.all
   end
     # Use callbacks to share common setup or constraints between actions.

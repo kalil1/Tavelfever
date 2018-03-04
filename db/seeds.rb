@@ -34,8 +34,7 @@ items = [
 	[ 'Running Shorts', 2],
 	[ 'Running Shirt', 2],
 	[ 'Music Player', 2],
-	[ 'Running
-		Headphones', 2],
+	[ 'Running Headphones', 2],
 		[ 'Pool Swimsuit', 3],
 		[ 'Swimsuit Coverup', 3],
 		[ 'Goggles', 3],

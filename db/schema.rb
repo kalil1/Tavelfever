@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302171025) do
+ActiveRecord::Schema.define(version: 20180303005740) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -35,6 +35,11 @@ ActiveRecord::Schema.define(version: 20180302171025) do
 
 # Could not dump table "checklists" because of following StandardError
 #   Unknown type 'array' for column 'activities'
+
+  create_table "checklists_items", id: false, force: :cascade do |t|
+    t.integer "checklist_id", null: false
+    t.integer "item_id", null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "iname"

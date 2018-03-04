@@ -1,5 +1,5 @@
 
-<%= simple_form_for(@item) do |f| %>
+<%= simple_form_for([@checklist, @checklist.items.build]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">

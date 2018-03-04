@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
 <h2>List</h2>
 <p>
-  <strong>List name:</strong>
+  <strong>Listc name:</strong>
+  <%= @checklist.list_name %>
 </p>
 
 <h3>Items</h3>
 
 <% @checklist.items.each do |item| %>
-<%= item.iname %>
+<%= item.iname %> <br>
 <% end %>
 
 <div class="ddd">
 
 <h3>Add Item</h3>
 
+<%= render 'items/form' %>
 
 </div>
 

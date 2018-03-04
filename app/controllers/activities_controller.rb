@@ -66,7 +66,7 @@ class ActivitiesController < ApplicationController
   private
 
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.where(activity_id: params[:id])
   end
     # Use callbacks to share common setup or constraints between actions.
     def set_activity
