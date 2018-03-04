@@ -1,2 +1,56 @@
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import "materialize";
+@import "home";
+
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.user-show {
+  background-image: url("http://allswalls.com/images/hills-wallpaper-1.jpg");
+  min-height: 100vh;
+  height: auto !important;
+  height: 100%;
+  // margin-bottom: 200px;
+  // background-image: url("http://allswalls.com/images/hills-wallpaper-1.jpg")
+}
+
+.checklists-show {
+  background-image: url("http://allswalls.com/images/hills-wallpaper-1.jpg");
+  min-height: 100vh;
+  height: auto !important;
+  height: 100%;
+  // margin-bottom: 200px;
+  // background-image: url("http://allswalls.com/images/hills-wallpaper-1.jpg")
+}
+
+
+
+.page-footer {
+ height: 200px;
+}
+
+
+// User controllr
+
+.icon {
+  margin: 2px 7px 0 0;
+}
+
+
+.current-list {
+    float: left;
+}
+
+.cards {
+    float: right;
+}
+
+// end user controller

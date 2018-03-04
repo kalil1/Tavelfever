@@ -12,10 +12,3 @@
 //
 //= require rails-ujs
 //= require_tree .
-
-$(document).on('ready turbolinks:load',function(){
-
-  // Waves.displayEffect();
-  // $('.parallax').parallax();
-
-});
