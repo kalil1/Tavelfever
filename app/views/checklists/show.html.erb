@@ -10,12 +10,15 @@
 <% @checklist.items.each do |item| %>
 <%= item.iname %> <br>
 <% end %>
+<% @checklist.useritems.each do |item| %>
+<%= item.name %> <br>
+<% end %>
 
 <div class="ddd">
 
 <h3>Add Item</h3>
 
-<%= render 'items/form' %>
+<%= render 'useritems/form' %>
 
 </div>
 

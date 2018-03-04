@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :useritems
   ActiveAdmin.routes(self)
   resources :items
   resources :activities
   resources :checklists do
     resources :items
+    resources :useritems
   end
   devise_for :users
   resources :user

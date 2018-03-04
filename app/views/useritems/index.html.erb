@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Useritems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Checklist</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @useritems.each do |useritem| %>
+      <tr>
+        <td><%= useritem.name %></td>
+        <td><%= useritem.checklist_id %></td>
+        <td><%= useritem.user_id %></td>
+        <td><%= link_to 'Show', useritem %></td>
+        <td><%= link_to 'Edit', edit_useritem_path(useritem) %></td>
+        <td><%= link_to 'Destroy', useritem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Useritem', new_useritem_path %>
