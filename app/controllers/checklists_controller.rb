@@ -28,6 +28,8 @@ class ChecklistsController < ApplicationController
   # POST /checklists.json
   def create
     @checklist = current_user.checklists.build(checklist_params)
+    @checklist.user_id = current_user.id
+
 
     respond_to do |format|
       if @checklist.save
@@ -82,7 +84,7 @@ def set_activity
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def checklist_params
-      params.require(:checklist).permit(:list_name, :activities => [])
+      params.require(:checklist).permit(:date, :destination, :length, :list_name, :activities => [])
     end
 
 end

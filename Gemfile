@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 
+
+gem 'flickraw'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
 # Use sqlite3 as the database for Active Record
@@ -16,6 +18,10 @@ gem 'paperclip', '~> 5.2', '>= 5.2.1'
 gem 'simple_form', '~> 3.5', '>= 3.5.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
+
+gem 'paperclip', '~> 5.2', '>= 5.2.1'
+
+gem 'weather_forecaster', '~> 0.3.0'
 
 gem 'devise'
 # Use SCSS for stylesheets
