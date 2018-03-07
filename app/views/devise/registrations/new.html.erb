@@ -19,10 +19,20 @@
   <%= devise_error_messages! %>
 
 
-  <div class="field">
-    <%= f.label :picture %>
-      <%= f.file_field :avatar %>
-  </div>
+
+
+  <form action="#">
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <input type="file" name="avatar">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+  </form>
+
 
   <div class="field">
     <%= f.label :email %><br />
@@ -51,19 +61,13 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
   <br>
 
-          <a class="waves-effect waves-light btn purple darken-4"><i class="material-icons left"></i>ALREADY MEMBER </a>
+          <i class="material-icons left"></i><%= link_to "ALREADY MEMBER ", new_user_session_path, class: "waves-effect waves-light btn purple darken-4" %>
           <a class="waves-effect waves-light btn purple darken-4"><i class="material-icons left"> <i class="fab fa-facebook-square"></i> </i>USE FACEBOOK </a>
 
   <br>
   <br>
-
-  <a class="waves-effect waves-light btn-large purple darken-4"><i class="material-icons left"></i>SIGN UP</a>
-
-
-
 
   <br>
   <br>
@@ -73,11 +77,11 @@
 
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <i class="material-icons left"></i><%= f.submit "Sign up", class: "waves-effect waves-light btn-large purple darken-4"  %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+ <%#= render "devise/shared/links" %>
 
 
 <div class="height: 50px;"> </div>

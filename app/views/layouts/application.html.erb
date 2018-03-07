@@ -34,9 +34,11 @@
     <!-- Dropdown navbar Structure materialize -->
     <ul id="dropdown1" class="dropdown-content">
       <li><%=link_to "New Trip", new_checklist_path %></li>
-      <li> <%= link_to "My Lists", current_user %> </li>
+      <li> <%= link_to "My Profile", current_user %> </li>
+      <li><%=link_to "My Trips", checklists_path %></li
       <li class="divider"></li>
-      <li><a href="#!">log out</a></li>
+      <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+
     </ul>
     <nav class="purple darken-4">
       <div class="nav-wrapper container">

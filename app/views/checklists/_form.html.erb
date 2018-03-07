@@ -16,15 +16,16 @@ h3 {
 
 <%= form_with(model: checklist, local: true) do |form| %>
 
-destination
   <div class="field">
     <%= form.label :List %>
     <%= form.text_field :list_name, id: :checklist_list_name %>
   </div>
 
+
+
   <div class="field">
     <%= form.label :Destination %>
-    <%= form.text_field :destination %>
+    <%= form.text_field :destination, class: "autocomplete-input" %>
   </div>
 
 
@@ -97,4 +98,22 @@ clear: 'Clear',
 close: 'Ok',
 closeOnSelect: false // Close upon selecting a date,
 });
+</script>
+
+<script type="text/javascript">
+
+$('.input-autocomplete').autocomplete({
+  data: {
+    "Apple": null,
+    "Microsoft": null,
+    "Google": 'https://placehold.it/250x250'
+  },
+  limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+  onAutocomplete: function(val) {
+    // Callback function when value is autcompleted.
+  },
+  minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+});
+
+
 </script>
