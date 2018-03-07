@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180304010505) do
+ActiveRecord::Schema.define(version: 20180306125635) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20180304010505) do
   end
 
 # Could not dump table "checklists" because of following StandardError
-#   Unknown type 'array' for column 'activities'
+#   Unknown type '' for column 'activities'
 
   create_table "checklists_items", id: false, force: :cascade do |t|
     t.integer "checklist_id", null: false
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 20180304010505) do
     t.datetime "updated_at", null: false
     t.integer "activity_id"
     t.integer "checklist_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string "name"
+    t.datetime "date"
+    t.integer "length"
+    t.integer "checklist_id"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "useritems", force: :cascade do |t|
@@ -73,6 +83,12 @@ ActiveRecord::Schema.define(version: 20180304010505) do
     t.boolean "admin", default: false
     t.string "provider"
     t.string "uid"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

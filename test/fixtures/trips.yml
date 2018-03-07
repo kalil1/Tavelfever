@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  date: 2018-03-04 10:23:12
+  length: 1
+  checklist_id: 1
+  location: MyString
+
+two:
+  name: MyString
+  date: 2018-03-04 10:23:12
+  length: 1
+  checklist_id: 1
+  location: MyString

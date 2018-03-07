@@ -1,93 +1,229 @@
 <% @user.email %>
 <% @user.checklists %>
 
+<style>
+/* <style media="screen"> */
+
+.profile {
+float: right;
+width: 20%;
+height: 20px;
+/* margin-right: 8px; */
+/* border-radius: 50%; */
+/* background-color: white; */
+    /* border-radius: 50%; */
+}
+
+.slider {
+  float: none;
+}
+
+.user-image {
+  border-radius: 50%
+}
+
+.coming-trips {
+/* margin-left: 108px; */
+/* background-color: white; */
+float: left;
+}
+
+/* .card { */
+/* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.9); */
+/* transition: 0.3s; */
+/* border-radius: 50%; /* 5px rounded corners */ */
+/* } */
+
+/* Add rounded corners to the top left and the top right corner of the image */
+img {
+/* border-radius: 5px 5px 0 0; */
+/* width: 100%; */
+/* border-radius: 50%; */
+}
+
+</style>
+
+
+
+<!-- The whole page -->
 <div class="user-show">
-
-<div class="container">
-
+  <div class="container">
 
 
-<h1> Coming Trips </h1>
+    <!-- profile info -->
 
-  <!-- collapsible list -->
-
-  <div class="row">
-     <div class="col s12 m6">
-  <!-- <div id="list" class="">
-    <div style="width:40%"> -->
-      <h4>#4 days #Bahamas</h4>
-      <ul class="collapsible" data-collapsible="accordion">
-        <li>
-          <div class="collapsible-header"><i class="fas fa-suitcase icon"></i>Basics</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="far fa-file icon"></i> Documents</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="fas fa-shower icon"></i> Toiletry</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="fas fa-fire icon"></i> Camping</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="fas fa-sun icon"></i> Beach</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="fas fa-bicycle icon"></i> Biking</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-<!-- end collapsible -->
-
-
-<!-- Archive Card Venice-->
-
-<div class="row">
-   <div class="col s12 m4 offset-s6">
-     <!-- <div class="col s6 offset-s6"><span class="flow-text">6-columns (offset-by-6)</span></div> -->
-     <div class="card  purple darken-4">
-       <div class="card-content white-text">
-         <span class="card-title">Venice 7 days</span>
-         <p>Here you can see what you packed for trips you did in the past, for instance the lovley trip to Venice whit your friends from collage.</p>
-       </div>
-       <div class="card-action">
-         <a href="#">Show</a>
-       </div>
-     </div>
-   </div>
- </div>
-
- <!--End Archive Card-->
-
- <!-- Archive Card New York-->
-
- <div class="row">
-    <div class="col s12 m4">
-      <div class="card  purple darken-4">
-        <div class="card-content white-text">
-          <span class="card-title">New York Week End</span>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
-        </div>
-        <div class="card-action">
-          <a href="#">Show</a>
+    <div class="profile">
+      <div class="user-image">
+        <%= image_tag current_user.avatar.url(:avatar_show) %>
+        <div class="containeri">
+          <h4><b><%= @user.last_name %>, <%= current_user.first_name %></b></h4>
+          <p>Email:<%= @user.email %></p>
         </div>
       </div>
+
+
     </div>
+    <div class="coming-trips">
+      <h1> Coming Trips </h1>
+
+      <!-- collapsible list -->
+
+      <div class="row">
+        <div class="col s12 m6">
+          <!-- <div id="list" class="">
+          <div style="width:40%"> -->
+          <h4>#Name of closest upcoming trip</h4>
+          <ul class="collapsible" data-collapsible="accordion">
+            <% current_user.checklists.each do |list| %>
+            <li>
+              <div class="collapsible-header"><i class="fas fa-suitcase icon"></i><%= list.list_name %>, <%= list.destination %> </div>
+              <div class="collapsible-body">
+                <% list.items.each do |item| %>
+                <span> <%= item.iname %> <br> </span>
+                <% end %>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <!-- end collapsible -->
+
+
+      <!-- Archive Card Venice-->
+
+      <div class="row">
+        <div class="col s12 m4 offset-s6">
+          <!-- <div class="col s6 offset-s6"><span class="flow-text">6-columns (offset-by-6)</span></div> -->
+          <div class="card  purple darken-4">
+            <div class="card-content white-text">
+              <span class="card-title"><%= @venue_one %></span>
+              <img src ="<%= @image_one %>">
+            </div>
+            <div class="card-action">
+              <a href="#">Show</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--End Archive Card-->
+
+      <!-- Archive Card New York-->
+
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="card  purple darken-4">
+            <div class="card-content white-text">
+              <span class="card-title"><%= @venue_two %></span>
+              <img src ="<%= @image_two %>">
+            </div>
+            <div class="card-action">
+              <a href="#">Show</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--End Archive Card-->
+
+    </div>
+
+<!-- slider -->
+
+    <div class="slider">
+        <ul class="slides">
+          <li>
+            <img src="https://www.thousandwonders.net/covers/54/Alps.jpg"> <!-- random image -->
+            <div class="caption center-align">
+              <h3>This is our big Tagline!</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+          <li>
+            <img src="https://lorempixel.com/580/250/nature/2"> <!-- random image -->
+            <div class="caption left-align">
+              <h3>Left Aligned Caption</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+          <li>
+            <img src="https://lorempixel.com/580/250/nature/3"> <!-- random image -->
+            <div class="caption right-align">
+              <h3>Right Aligned Caption</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+          <li>
+            <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
+            <div class="caption center-align">
+              <h3>This is our big Tagline!</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+<!-- slider end -->
+
   </div>
-
-  <!--End Archive Card-->
-
-
 </div>
 
 
 
-</div>
+
+
+<script type="text/javascript">
+
+
+var countDownDate = new Date("Mar 16, 2018 08:00:00").getTime();
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+
+  var distance = countDownDate - now;
+
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+  document.getElementById("demo").innerHTML = days + "days " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "WE MADE IT!";
+  }
+}, 1000);
+
+
+
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// When the user clicks anywhere outside of the modal, close it
+var modal = document.getElementById('ticketModal');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+$(document).ready(function(){
+     $('.slider').slider();
+   });
+
+</script>
