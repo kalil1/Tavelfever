@@ -9,7 +9,7 @@ class OpenWeatherApi
   def get_weather(city)
     url = @url + "data/2.5/weather?q=#{city}"
     url << "&APPID=#{@key}"
-    HTTParty.get(url)['main']
+    HTTParty.get(url)
   end
 
 end

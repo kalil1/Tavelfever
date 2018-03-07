@@ -31,7 +31,7 @@ gem 'jquery-ui-rails', '~> 5.0.5'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'httparty'
 gem 'materialize-sass', '~> 1.0.0.alpha4'
 
 gem 'omniauth-facebook'
