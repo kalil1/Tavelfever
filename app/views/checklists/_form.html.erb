@@ -16,11 +16,28 @@ h3 {
 
 <%= form_with(model: checklist, local: true) do |form| %>
 
-
+destination
   <div class="field">
-    <%= form.label :list_name %>
+    <%= form.label :List %>
     <%= form.text_field :list_name, id: :checklist_list_name %>
   </div>
+
+  <div class="field">
+    <%= form.label :Destination %>
+    <%= form.text_field :destination %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :'Date & Time' %>
+    <%= form.date_field :date, class: 'datepickerll' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Length_Of_Stay %>
+    <%= form.number_field :length %>
+  </div>
+
 
   <div class="intro-text">
     <h3>Checkbox with Materialize CSS</h3>
@@ -67,3 +84,17 @@ h3 {
     <%= form.submit %>
   </div>
 <% end %>
+
+
+
+
+<script type="text/javascript">
+$('.datepickerll').pickadate({
+selectMonths: false, // Creates a dropdown to control month
+selectYears: 15, // Creates a dropdown of 15 years to control year,
+today: 'Today',
+clear: 'Clear',
+close: 'Ok',
+closeOnSelect: false // Close upon selecting a date,
+});
+</script>
