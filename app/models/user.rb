@@ -8,7 +8,7 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: %i[facebook]
 
 
-  has_attached_file :avatar, styles: { avatar_index: "300x300>", avatar_show: "100x100>" }, default_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEiZh1o_vDGs9LM2tfzlRVk3EXnh-yjeJPHfG2g0p7LATl89w"
+  has_attached_file :avatar, styles: { avatar_index: "300x300>", avatar_show: "100x100>" }, default_url: "https://www.skolbilder.com/Malarbild-silhuett-av-fagel-kiwi-i19631.html"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def self.from_omniauth(auth)

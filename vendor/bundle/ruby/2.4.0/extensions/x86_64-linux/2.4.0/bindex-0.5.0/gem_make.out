@@ -1,0 +1,15 @@
+current directory: /home/lisa/Desktop/wyncode/travelfever/Tavelfever/vendor/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+/usr/bin/ruby2.4 -r ./siteconf20180306-21593-1uk92xn.rb extconf.rb
+creating Makefile
+
+current directory: /home/lisa/Desktop/wyncode/travelfever/Tavelfever/vendor/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /home/lisa/Desktop/wyncode/travelfever/Tavelfever/vendor/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.so
+
+current directory: /home/lisa/Desktop/wyncode/travelfever/Tavelfever/vendor/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20180306-21593-1rv6tuo/bindex
