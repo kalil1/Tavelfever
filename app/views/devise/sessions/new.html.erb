@@ -1,3 +1,12 @@
+<style media="screen">
+
+.login-text {
+    color: black;
+}
+
+
+</style>
+
 <!-- log in -->
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
@@ -15,28 +24,31 @@
 
 
         <h4>Log in</h4>
+        <br>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.label :Email, class: "login-text" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email"  %>
         </div>
 
         <div class="field">
-          <%= f.label :password %><br />
+          <%= f.label :password, class: "login-text" %><br />
           <%= f.password_field :password, autocomplete: "off" %>
         </div>
 
         <% if devise_mapping.rememberable? -%>
         <div class="field">
           <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+          <%= f.label :remember_me, class: "login-text" %>
         </div>
         <% end -%>
+<br>
+<br>
 
 
         <div class="actions">
-          <%= f.submit "Log on", class: "waves-effect waves-light btn-large purple darken-4" %>
+          <%= f.submit "Log In", class: "waves-effect waves-light btn-large purple darken-4" %>
         </div>
         <% end %>
         <br>
