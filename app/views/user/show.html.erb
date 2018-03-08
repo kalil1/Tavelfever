@@ -2,6 +2,23 @@
 <% @user.checklists %>
 
 <style media="screen">
+
+.collapsible-body > li {
+  column-count: 2;
+  column-gap: 20px;
+}
+
+.list-inline {
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+}
+.list-inline > li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
 .left-div {
   float: right;
   width: 25%;
@@ -44,26 +61,29 @@ font-size:
 
   <div class="left-div">
 
-<div class="card">
-  <%= image_tag current_user.avatar.url(:avatar_show) %>
-  <div class="containeri">
-    <h4><b><%= @user.last_name %>, <%= current_user.first_name %></b></h4>
-    <p>Email:<%= @user.email %></p>
 
-  </div>
-</div>
 
 
   </div>
   <div class="right-div">
 <h1> Coming Trips </h1>
 <div class="">
+ <ul class="collapsible" data-collapsible="accordion">
+   <li>
+  <div class="collapsible-header">
+    <ul class="list-inline" >
+      <li><h5><i class="material-icons">filter_drama</i><%= current_user.checklists.last.list_name %></h3></li>
+      <li><%= current_user.checklists.last.destination %></li>
+      <li><%= current_user.checklists.last.date %></li>
+      <li> <p id="demo" ></p> </li>
+    </ul> </div>
+  <div class="collapsible-body">
+    <% current_user.checklists.last.items.each do |item| %>
+    <span><%= item.iname %> <br></span>
 
-<h4> <%= current_user.checklists.last.list_name %>  </h4>
-<% current_user.checklists.last.items.each do |item| %>
-<span> <%= item.iname %> <br> </span>
-<% end %>
+    <% end %>
 </div>
+</li>
   <!-- collapsible list -->
 
   <!-- Modal Trigger -->
@@ -89,7 +109,12 @@ font-size:
     <ul class="collapsible" data-collapsible="accordion">
       <% current_user.checklists.sample(3).each do |list| %>
       <li>
-        <div class="collapsible-header"><i class="fas fa-suitcase icon"></i><%= list.list_name %>, <br> <%= list.destination %> <p class="pp" ><%= list.date %></p> </div>
+        <div class="collapsible-header"><ul class="list-inline" >
+              <li><h6><i class="fas fa-suitcase icon"></i><%= list.list_name %></h6></li>
+              <li><%= list.destination %></li>
+              <li><%= list.date %></li>
+              <!-- <li> <p id="demo" ></p> </li> -->
+            </ul> </div>
         <div class="collapsible-body">
           <% list.items.each do |item| %>
           <span> <%= item.iname %> <br> </span>
@@ -106,17 +131,18 @@ font-size:
 <!-- Archive Card Venice-->
 
 <div class="row">
-   <div class="col s12 m4">
-     <div class="">
-       <div class="">
-         <span class="card-title"><h2>weather forecast</h2></span>
-         <img src ="<%= @image_two %>">
-       </div>
-       <div class="card-action">
-         <a href="#">Show</a>
-       </div>
-     </div>
-   </div>
+  <div class="col s12 m4 offset-s6">
+    <!-- <div class="col s6 offset-s6"><span class="flow-text">6-columns (offset-by-6)</span></div> -->
+    <div class="card  purple darken-4">
+      <div class="card-content white-text">
+        <span class="card-title"><%= @venue_one %></span>
+        <img src ="<%= @image_one %>">
+      </div>
+      <div class="card-action">
+        <a href="#">Show</a>
+      </div>
+    </div>
+  </div>
 
 
    <div class="col s12 m4 offset-s6">
@@ -259,10 +285,10 @@ window.onclick = function(event) {
 <script type="text/javascript">
 
 $(function() {
-	$(".card").draggable();
-	$(".block").on("click", function() {
-		$(".info").toggleClass("active");
-	});
+$(".card").draggable();
+$(".block").on("click", function() {
+$(".info").toggleClass("active");
+});
 });
 
 </script>
@@ -293,3 +319,5 @@ $('.modal').modal({
   }
 );
 </script>
+
+<script type="text/JavaScript" src="css3-multi-column.js"></script>

@@ -23,6 +23,15 @@
 
   </head>
 
+<style media="screen">
+.circular--square {
+border-radius: 50%;
+  display: block;
+margin-left: auto;
+margin-right: auto;
+width: 40%;
+}
+</style>
   <!-- <style media="screen">
     .ddd {
       border-color: black;
@@ -35,7 +44,7 @@
     <ul id="dropdown1" class="dropdown-content">
       <li><%=link_to "New Trip", new_checklist_path %></li>
       <li> <%= link_to "My Profile", current_user %> </li>
-      <li><%=link_to "My Trips", checklists_path %></li
+      <li><%=link_to "My Trips", checklists_path %></li>
       <li class="divider"></li>
       <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 
@@ -43,11 +52,20 @@
     <nav class="purple darken-4">
       <div class="nav-wrapper container">
 
+
         <a href="/" class="brand-logo">TravelFever</a>
         <ul class="right hide-on-med-and-down">
           <% if user_signed_in? %>
+          <li  ><div class="tooltip"><%= current_user.first_name %>
+            <div class="tooltiptext">
+                <p>
+                  <%= image_tag current_user.avatar.url(:avatar_show), class: "circular--square" %>
+                  <%= current_user.last_name %>, <%= current_user.first_name %> <br>
+                  <%= current_user.email %>
+                   </p>
+                  </div>
+          </div></li>
   					<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-            <li><%= current_user.first_name %></li>
   				<% else %>
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
   					<li><%= link_to "Log In", new_user_session_path %></li>
