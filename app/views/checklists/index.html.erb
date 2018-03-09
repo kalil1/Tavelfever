@@ -1,26 +1,83 @@
-<p id="notice"><%= notice %></p>
+<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-<h1>Checklists</h1>
+<div class="user-show">
+  <div class="container">
 
-  <ul class="collapsible" data-collapsible="accordion">
-    <% current_user.checklists.each do |list| %>
-    <li>
-      <div class="collapsible-header"><i class="fas fa-suitcase icon"></i><%= list.list_name %>, <%= list.destination %> </div>
-      <div class="collapsible-body">
-        <% list.items.each do |item| %>
-        <span> <%= item.iname %> <br> </span>
 
-        <% end %>
+<br>
+<br>
+
+    <!-- collapsible -->
+
+      <div id="list" class="">
+        <div style="width:50%">
+          <h4>Name of Trip, Destination</h4> <br>
+          <ul class="collapsible" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header"><i class="far fa-file"></i>Documents</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="fas fa-suitcase"></i>Basics</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="fas fa-shower"></i> Toiletry</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="fas fa-fire"></i> Camping</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="fas fa-sun"></i> Beach</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="fas fa-bicycle"></i> Biking</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <i class="fal fa-bath"></i>
+
+    <!-- end collapsible -->
+
+
+
+
+<!-- dropdown proper data  -->
+    <!-- <p id="notice"><%= notice %></p>
+
+    <h1>All Trips</h1>
+
+    <div class="">
+      <ul class="collapsible" data-collapsible="accordion">
+        <% current_user.checklists.each do |list| %>
+        <li>
+          <div class="collapsible-header"><i class="fas fa-suitcase icon"></i><%= list.list_name %>, <%= list.destination %> </div>
+          <div class="collapsible-body">
+            <% list.items.each do |item| %>
+            <span> <%= item.iname %> <br> </span>
+
+            <% end %>
             <%= link_to 'Show', list %>
             <%= link_to 'Edit', edit_checklist_path(list) %>
-            <%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %>
           </li>
-      </div>
-      <% end %>
+        </div>
+        <% end %>
+      </ul>
+    </div> -->
 
-  </ul>
+<!-- end dropdown proper data -->
+
+
+    <%= link_to 'New Trip', new_checklist_path %>
 
 
 
-
-<%= link_to 'New Checklist', new_checklist_path %>
+  </div>
+</div>
