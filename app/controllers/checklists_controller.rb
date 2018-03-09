@@ -33,7 +33,7 @@ class ChecklistsController < ApplicationController
 
     respond_to do |format|
       if @checklist.save
-        format.html { redirect_to checklists_path, notice: 'Checklist was successfully created.' }
+        format.html { redirect_to user_path(current_user), notice: 'Checklist was successfully created.' }
         format.json { render :show, status: :created, location: @checklist }
 
         params[:activities].each do |activity_id|

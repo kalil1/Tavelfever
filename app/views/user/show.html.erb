@@ -58,74 +58,62 @@ font-size:
 
 <div class="container">
 
+<% if current_user.checklists.count == 0  %>
+<h2>You haven't taken any trips</h2>
+<% else  %>
+<div id="list" class="">
+  <div style="width:50%">
+    <h4><i class="material-icons">filter_drama</i><%= current_user.checklists.last.list_name %></h4> <br>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header"><i class="far fa-file"></i>Documents</div>
+        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="fas fa-suitcase"></i>Basics</div>
+        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="fas fa-shower"></i> Toiletry</div>
+        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="fas fa-fire"></i> Activites</div>
+        <div class="collapsible-body">
+          <% current_user.checklists.last.items.each do |item| %>
+          <span><%= item.iname %> <br></span>
+          <% end %>
+        </li>
+      </ul>
 
-  <div class="left-div">
-
-
-
-
+    </div>
   </div>
-  <div class="right-div">
-<h1> Coming Trips </h1>
-<div class="">
- <ul class="collapsible" data-collapsible="accordion">
-   <li>
-  <div class="collapsible-header">
-    <ul class="list-inline" >
-      <li><h5><i class="material-icons">filter_drama</i><%= current_user.checklists.last.list_name %></h3></li>
-      <li><%= current_user.checklists.last.destination %></li>
-      <li><%= current_user.checklists.last.date %></li>
-      <li> <p id="demo" ></p> </li>
-    </ul> </div>
-  <div class="collapsible-body">
-    <% current_user.checklists.last.items.each do |item| %>
-    <span><%= item.iname %> <br></span>
-
-    <% end %>
 </div>
-</li>
-  <!-- collapsible list -->
+<% end %>
 
+  <h4> TRIPS</h4>
+
+<div class="">
+
+  <% current_user.checklists.sample(3).each do |list| %>
   <!-- Modal Trigger -->
-<a data-target="modal1" class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
+  <a data-target="modal1" class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="fas fa-suitcase icon"></i><%= list.list_name %></a>
 <!-- Modal Structure -->
 <div id="modal1" class="modal modal-fixed-footer">
   <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h4><i class="fas fa-suitcase icon"></i><%= list.list_name %></h4>
+    <p><%= list.destination %></p>
+    <% list.items.each do |item| %>
+    <span> <%= item.iname %> <br> </span>
+    <% end %>
+    <% end %>
   </div>
   <div class="modal-footer">
     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
   </div>
 </div>
 
-  <div class="row">
-     <div class="col s12 m6">
-  <!-- <div id="list" class="">
-    <div style="width:40%"> -->
-    <h4> TRIPS</h4>
-    <ul class="collapsible" data-collapsible="accordion">
-      <% current_user.checklists.sample(3).each do |list| %>
-      <li>
-        <div class="collapsible-header"><ul class="list-inline" >
-              <li><h6><i class="fas fa-suitcase icon"></i><%= list.list_name %></h6></li>
-              <li><%= list.destination %></li>
-              <li><%= list.date %></li>
-              <!-- <li> <p id="demo" ></p> </li> -->
-            </ul> </div>
-        <div class="collapsible-body">
-          <% list.items.each do |item| %>
-          <span> <%= item.iname %> <br> </span>
-          <% end %>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-  </div>
 </div>
-<!-- end collapsible -->
 
 
 <!-- Archive Card Venice-->
@@ -174,7 +162,7 @@ font-size:
 
  <!--End Archive Card-->
 
-</div>
+
  <!-- Archive Card New York-->
 
 
@@ -233,7 +221,7 @@ font-size:
 <script type="text/javascript">
 
 
-var countDownDate = new Date("Mar 16, 2018 08:00:00").getTime();
+var countDownDate = new Date( `<%= @date %> 08:00:00`).getTime();
 var x = setInterval(function() {
 
     var now = new Date().getTime();

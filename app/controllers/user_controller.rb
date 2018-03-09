@@ -16,8 +16,12 @@ class UserController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+
     @user = User.find_by(params[:id])
 
+    @date = @user.checklists.last.date
+
+    @weather = OpenWeatherApi.new('dae8d10e4ffe898434f2932fc31d48d2').get_weather(@user.checklists.last.destination)['main']
       # Start of destination scrape
       destUrl = "http://www.10best.com/destinations/all/"
 
@@ -169,13 +173,14 @@ class UserController < ApplicationController
 
   private
 
+
   def set_checklist
     @checklist = Checklist.where(user_id: params[:id])
   end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find_by(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

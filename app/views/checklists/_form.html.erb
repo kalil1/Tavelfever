@@ -22,6 +22,15 @@ label {
     opacity: 0.5;
 } */
 
+
+.card {
+  height: 500px;
+}
+
+.row {
+  width: 100%;
+}
+
 </style>
 
 <div class="row">
@@ -30,7 +39,7 @@ label {
 
 <!-- form create new trip -->
 
-<h1>Create New Trip</h1>
+<h5>NewTrip</h5>
 
 <br>
 
@@ -60,6 +69,159 @@ label {
     <!-- <%= form.number_field :length %> -->
   </div>
     </div>
+    <div class="col s12 m3">
+      <div class="card purple darken-4">
+        <div class="card-content amber-text lighten-2">
+          <span class="card-title">Activites</span>
+
+
+
+          <div class="activity-card amber-text lighten-2">
+            <!-- <h3>Activites</h3> -->
+              <p>
+                <input type="checkbox" class="filled-in" id="gym" name="activities[]" value="<%= @activities[0].id %>" />
+                <label for="gym"><%= @activities[0].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="running" name="activities[]" value="<%= @activities[1].id %>" />
+                <label for="running"><%= @activities[1].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Swimming" name="activities[]" value="<%= @activities[2].id %>" />
+                <label for="Swimming"><%= @activities[2].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="BusinessFormal" name="activities[]" value="<%= @activities[3].id %>" />
+                <label for="BusinessFormal"><%= @activities[3].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Snow Sport" name="activities[]" value="<%= @activities[4].id %>" />
+                <label for="Snow Sport"><%= @activities[4].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Beach" name="activities[]" value="<%= @activities[5].id %>" />
+                <label for="Beach"><%= @activities[5].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Hiking" name="activities[]" value="<%= @activities[6].id %>" />
+                <label for="Hiking"><%= @activities[6].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Dinner" name="activities[]" value="<%= @activities[7].id %>" />
+                <label for="Dinner"><%= @activities[7].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Camping" name="activities[]" value="<%= @activities[8].id %>" />
+                <label for="Camping"><%= @activities[8].name%></label>
+              </p>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m3">
+      <div class="card purple darken-4">
+        <div class="card-content amber-text lighten-2">
+          <span class="card-title">Activites</span>
+
+
+
+          <div class="activity-card amber-text lighten-2">
+            <!-- <h3>Activites</h3> -->
+              <p>
+                <input type="checkbox" class="filled-in" id="gym" name="activities[]" value="<%= @activities[0].id %>" />
+                <label for="gym"><%= @activities[0].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="running" name="activities[]" value="<%= @activities[1].id %>" />
+                <label for="running"><%= @activities[1].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Swimming" name="activities[]" value="<%= @activities[2].id %>" />
+                <label for="Swimming"><%= @activities[2].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="BusinessFormal" name="activities[]" value="<%= @activities[3].id %>" />
+                <label for="BusinessFormal"><%= @activities[3].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Snow Sport" name="activities[]" value="<%= @activities[4].id %>" />
+                <label for="Snow Sport"><%= @activities[4].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Beach" name="activities[]" value="<%= @activities[5].id %>" />
+                <label for="Beach"><%= @activities[5].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Hiking" name="activities[]" value="<%= @activities[6].id %>" />
+                <label for="Hiking"><%= @activities[6].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Dinner" name="activities[]" value="<%= @activities[7].id %>" />
+                <label for="Dinner"><%= @activities[7].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Camping" name="activities[]" value="<%= @activities[8].id %>" />
+                <label for="Camping"><%= @activities[8].name%></label>
+              </p>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m3">
+      <div class="card purple darken-4">
+        <div class="card-content amber-text lighten-2">
+          <span class="card-title">Activites</span>
+
+
+
+          <div class="activity-card amber-text lighten-2">
+            <!-- <h3>Activites</h3> -->
+              <p>
+                <input type="checkbox" class="filled-in" id="gym" name="activities[]" value="<%= @activities[0].id %>" />
+                <label for="gym"><%= @activities[0].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="running" name="activities[]" value="<%= @activities[1].id %>" />
+                <label for="running"><%= @activities[1].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Swimming" name="activities[]" value="<%= @activities[2].id %>" />
+                <label for="Swimming"><%= @activities[2].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="BusinessFormal" name="activities[]" value="<%= @activities[3].id %>" />
+                <label for="BusinessFormal"><%= @activities[3].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Snow Sport" name="activities[]" value="<%= @activities[4].id %>" />
+                <label for="Snow Sport"><%= @activities[4].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Beach" name="activities[]" value="<%= @activities[5].id %>" />
+                <label for="Beach"><%= @activities[5].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Hiking" name="activities[]" value="<%= @activities[6].id %>" />
+                <label for="Hiking"><%= @activities[6].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Dinner" name="activities[]" value="<%= @activities[7].id %>" />
+                <label for="Dinner"><%= @activities[7].name%></label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="Camping" name="activities[]" value="<%= @activities[8].id %>" />
+                <label for="Camping"><%= @activities[8].name%></label>
+              </p>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
       </div>
 
       <!-- end form create new trip -->
@@ -67,57 +229,7 @@ label {
 
 <!-- card -->
 <div class="row">
-      <div class="col s12 m3">
-        <div class="card purple darken-4">
-          <div class="card-content amber-text lighten-2">
-            <span class="card-title">Activites</span>
 
-
-
-            <div class="activity-card amber-text lighten-2">
-              <!-- <h3>Activites</h3> -->
-                <p>
-                  <input type="checkbox" class="filled-in" id="gym" name="activities[]" value="<%= @activities[0].id %>" />
-                  <label for="gym"><%= @activities[0].name%></label>
-                </p>
-                <p>
-                  <input type="checkbox" class="filled-in" id="running" name="activities[]" value="<%= @activities[1].id %>" />
-                  <label for="running"><%= @activities[1].name%></label>
-                </p>
-                <p>
-                  <input type="checkbox" class="filled-in" id="Swimming" name="activities[]" value="<%= @activities[2].id %>" />
-                  <label for="Swimming"><%= @activities[2].name%></label>
-                </p>
-                <p>
-                  <input type="checkbox" class="filled-in" id="BusinessFormal" name="activities[]" value="<%= @activities[3].id %>" />
-                  <label for="BusinessFormal"><%= @activities[3].name%></label>
-                </p>
-                <p>
-                  <input type="checkbox" class="filled-in" id="Snow Sport" name="activities[]" value="<%= @activities[4].id %>" />
-                  <label for="Snow Sport"><%= @activities[4].name%></label>
-                </p>
-                <p>
-                  <input type="checkbox" class="filled-in" id="Beach" name="activities[]" value="<%= @activities[5].id %>" />
-                  <label for="Beach"><%= @activities[5].name%></label>
-                </p>
-                <p>
-                  <input type="checkbox" class="filled-in" id="Hiking" name="activities[]" value="<%= @activities[6].id %>" />
-                  <label for="Hiking"><%= @activities[6].name%></label>
-                </p>
-                <p>
-                  <input type="checkbox" class="filled-in" id="Dinner" name="activities[]" value="<%= @activities[7].id %>" />
-                  <label for="Dinner"><%= @activities[7].name%></label>
-                </p>
-                <p>
-                  <input type="checkbox" class="filled-in" id="Camping" name="activities[]" value="<%= @activities[8].id %>" />
-                  <label for="Camping"><%= @activities[8].name%></label>
-                </p>
-            </div>
-
-
-          </div>
-        </div>
-      </div>
     </div>
 
           <!-- end card  -->
@@ -173,7 +285,8 @@ label {
   <div class="form-actions">
   <a class="waves-effect waves-light btn-large purple darken-4">
     <%= form.submit %>
-  </div> </a>
+  </a>
+  </div>
 
 <% end %>
 

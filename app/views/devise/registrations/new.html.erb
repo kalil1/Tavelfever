@@ -1,99 +1,105 @@
 <style media="screen">
+
 .login-text {
     color: black;
 }
+
+
 </style>
 
 <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
 <div class="user-show">
-  <div class="container">
+<div class="container">
 
 
-    <div class="row">
-      <div class="col s5">
-
-        <br>
-        <br>
+  <div class="row">
+    <div class="col s5">
 
 
-
-
-        <h4>Sign Up</h4>
-
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
+      <br>
 
 
 
 
+<h4>Create Account</h4>
+<br>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
 
 
 
-        <div class="field">
-          <%= f.label :email, class: "login-text" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :First_Name, class: "login-text" %><br />
-          <%= f.text_field :first_name %>
-        </div>
-
-        <div class="field">
-          <%= f.label :last_Name, class: "login-text" %><br />
-          <%= f.text_field :last_name %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password, class: "login-text" %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "off" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password_confirmation, class: "login-text" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-        </div>
-        <br>
-
-        <div class="btn-options">
-
-
-          <i class="material-icons left"></i><%= link_to "ALREADY MEMBER ", new_user_session_path, class: "waves-effect waves-light btn purple darken-4" %>
-          <a class="waves-effect waves-light btn purple darken-4"><i class="material-icons left"> <i class="fab fa-facebook-square"></i> </i>USE FACEBOOK </a>
 
 
 
-          <form action="#">
-            <div class="file-field input-field">
-              <div class="waves-effect waves-light btn purple darken-4">
-                <span>Add Picture</span>
-                <input type="file" name="avatar">
-              </div>
-              <div class="file-path-wrapper">
-                <!-- <input class="file-path validate" type="text"> -->
-              </div>
-            </div>
-          </form>
-        </div>
 
-        <br>
-        <br>
-
-        <div class="actions">
-          <i class="material-icons left"></i><%= f.submit "Sign up", class: "waves-effect waves-light btn-large purple darken-4"  %>
-        </div>
-        <% end %>
-
-        <%#= render "devise/shared/links" %>
-
-
-        <div class="height: 50px;"> </div>
-
-      </div>
-    </div>
+  <div class="field">
+    <%= f.label :email, class: "login-text"%><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+
+  <div class="field">
+    <%= f.label :First_Name, class: "login-text" %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_Name, class: "login-text" %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, class: "login-text" %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, class: "login-text" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :User_Photo, class: "login-text"%><br />
+    <%= f.file_field :avatar, class: "waves-effect waves-light btn purple darken-4" %>
+  </div>
+
+  <br>
+  <div class="actions">
+    <i class="material-icons left"></i><%= f.submit "Sign up", class: "waves-effect waves-light btn-large purple darken-4"  %>
+
+
+
+
+  <br>
+
+          <i class="material-icons left"></i><%= link_to "Already Member", new_user_session_path, class: "waves-effect waves-light btn-large purple darken-4" %> <br>
+          <i class="material-icons left"></i><%= link_to "Sign Up With Facebook", new_user_session_path, class: "waves-effect waves-light btn-large purple darken-4" %>
+
+
+  <br>
+  <br>
+
+  <br>
+  <br>
+
+
+
+
+
+
+<% end %>
+
+ <%#= render "devise/shared/links" %>
+
+
+<div class="height: 50px;"> </div>
+
+</div>
+</div>
+</div>
 </div>
