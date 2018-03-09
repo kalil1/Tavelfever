@@ -45,7 +45,7 @@ img {
 
 .pp{
 font-style: italic;
-font-size:
+max-height: 70px;
 }
 </style>
 
@@ -78,8 +78,8 @@ font-size:
         <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
       </li>
       <li>
-        <div class="collapsible-header"><i class="fas fa-fire"></i> Activites</div>
-        <div class="collapsible-body">
+        <div class="collapsible-header"><i class="fas fa-fire"></i> Activites <%= @weather %> </div>
+        <div class="collapsible-body" id="pp" >
           <% current_user.checklists.last.items.each do |item| %>
           <span><%= item.iname %> <br></span>
           <% end %>
@@ -91,29 +91,6 @@ font-size:
 </div>
 <% end %>
 
-  <h4> TRIPS</h4>
-
-<div class="">
-
-  <% current_user.checklists.sample(3).each do |list| %>
-  <!-- Modal Trigger -->
-  <a data-target="modal1" class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="fas fa-suitcase icon"></i><%= list.list_name %></a>
-<!-- Modal Structure -->
-<div id="modal1" class="modal modal-fixed-footer">
-  <div class="modal-content">
-    <h4><i class="fas fa-suitcase icon"></i><%= list.list_name %></h4>
-    <p><%= list.destination %></p>
-    <% list.items.each do |item| %>
-    <span> <%= item.iname %> <br> </span>
-    <% end %>
-    <% end %>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-  </div>
-</div>
-
-</div>
 
 
 <!-- Archive Card Venice-->
