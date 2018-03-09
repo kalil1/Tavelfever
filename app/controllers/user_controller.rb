@@ -19,11 +19,30 @@ class UserController < ApplicationController
 
     @user = User.find_by(params[:id])
     @weather = OpenWeatherApi.new("dae8d10e4ffe898434f2932fc31d48d2")
-    @weather = @weather.get_weather('miami')
+    @weather = @weather.get_weather('miami')['weather'][0]['description']
+    @forecast =
+    @temp =
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @date = @user.checklists.last.date
 
-    @weather = OpenWeatherApi.new('dae8d10e4ffe898434f2932fc31d48d2').get_weather(@user.checklists.last.destination)['main']
+    # @weather = OpenWeatherApi.new('dae8d10e4ffe898434f2932fc31d48d2').get_weather(@user.checklists.last.destination)['main']
       # Start of destination scrape
       destUrl = "http://www.10best.com/destinations/all/"
 
