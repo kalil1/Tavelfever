@@ -13,3 +13,7 @@ class OpenWeatherApi
   end
 
 end
+
+
+weather = OpenWeatherApi.new("dae8d10e4ffe898434f2932fc31d48d2")
+weather.get_weather("miami")

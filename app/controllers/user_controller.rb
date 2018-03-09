@@ -17,6 +17,8 @@ class UserController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find_by(params[:id])
+    @weather = OpenWeatherApi.new("dae8d10e4ffe898434f2932fc31d48d2")
+    @weather = @weather.get_weather('miami')
 
       # Start of destination scrape
       destUrl = "http://www.10best.com/destinations/all/"
