@@ -112,7 +112,6 @@ class UserController < ApplicationController
       # Index of random photo to grab correct picture
       @index_one = @venue.index(@venue_one)
       @index_two = @venue.index(@venue_two)
-      @index_two = @venue.index(@venue_two)
       @index_three = @venue.index(@venue_three)
 
 

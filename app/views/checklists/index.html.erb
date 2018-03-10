@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
 <div class="user-show">
@@ -37,6 +38,7 @@
       </ul>
     </div>
 
+    <%= link_to 'New Trip', new_checklist_path, class: "waves-effect waves-light btn purple darken-4" %>
   </div>
 
 
@@ -44,18 +46,21 @@
 
   <div id="list" class="">
     <div>
-      <h4>Name of Trip, Destination</h4> <br>
+      <h4>All Trips</h4> <br>
       <ul class="collapsible" data-collapsible="accordion">
         <% current_user.checklists.each do |list| %>
         <li>
           <div class="collapsible-header"><i class="far fa-file"></i><%=  list.list_name %></div>
-          <div class="collapsible-body"><span></span></div>
-        </li>
-        <% end %>
-    </div>
+          <div class="collapsible-body"> <% list.items.each do |item| %>
+            <span> <%= item.iname %> <br></span>
+            <% end %>
+            <%= link_to 'Show', list, class: "waves-effect waves-light btn purple darken-4" %>
+            <%= link_to 'Edit', edit_checklist_path(list), class: "waves-effect waves-light btn purple darken-4" %>
+            <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-light btn purple darken-4" %>
+          </div>
+          </li>
+          <% end %>
   </div>
-  <i class="fal fa-bath"></i>
-
 </div>
 
 
@@ -69,32 +74,7 @@
 
 
 <!-- dropdown proper data   -->
-    <p id="notice"><%= notice %></p>
 
-    <h1>All Trips</h1>
-
-    <div class="">
-      <ul class="collapsible" data-collapsible="accordion">
-        <% current_user.checklists.each do |list| %>
-        <li>
-          <div class="collapsible-header"><i class="fas fa-suitcase icon"></i><%= list.list_name %>, <%= list.destination %> </div>
-          <div class="collapsible-body">
-            <% list.items.each do |item| %>
-            <span> <%= item.iname %> <br> </span>
-            <% end %>
-            <%= link_to 'Show', list %>
-            <%= link_to 'Edit', edit_checklist_path(list) %>
-            <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </li>
-        </div>
-        <% end %>
-      </ul>
-    </div>
-
-<!-- end dropdown proper data -->
-
-
-    <%= link_to 'New Trip', new_checklist_path %>
 
 
 
