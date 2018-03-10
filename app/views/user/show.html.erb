@@ -47,6 +47,9 @@ img {
 font-style: italic;
 max-height: 70px;
 }
+.time-box {
+  border-color: white;
+}
 </style>
 
 
@@ -57,42 +60,55 @@ max-height: 70px;
 <div class="user-show">
 
 <div class="container">
+<div class="row">
 
-<% if current_user.checklists.count == 0  %>
-<h2>You haven't taken any trips</h2>
-<% else  %>
-<div id="list" class="">
-  <div style="width:50%">
-    <h4><i class="material-icons">filter_drama</i><%= current_user.checklists.last.list_name %></h4> <br>
-    <ul class="collapsible" data-collapsible="accordion">
-      <li>
-        <div class="collapsible-header"><i class="far fa-file"></i>Documents</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-      </li>
-      <li>
-        <div class="collapsible-header"><i class="fas fa-suitcase"></i>Basics</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-      </li>
-      <li>
-        <div class="collapsible-header"><i class="fas fa-shower"></i> Toiletry</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-      </li>
-      <li>
-        <div class="collapsible-header"><i class="fas fa-fire"></i> Activites <%= @weather %> </div>
-        <div class="collapsible-body" id="pp" >
-          <% current_user.checklists.last.items.each do |item| %>
-          <span><%= item.iname %> <br></span>
-          <% end %>
-        </li>
-      </ul>
-
-    </div>
+  <div class="col s12 m6">
+    <% if current_user.checklists.count == 0  %>
+      <h2>You haven't taken any trips</h2>
+    <% else  %>
+      <div id="list" class="">
+        <h4><i class="material-icons">filter_drama</i><%= current_user.checklists.last.list_name %></h4> <br>
+        <ul class="collapsible" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header"><i class="far fa-file"></i>Documents</div>
+            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="fas fa-suitcase"></i>Basics</div>
+            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="fas fa-shower"></i> Toiletry</div>
+            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="fas fa-fire"></i> <%= current_user.checklists.last.list_name %> </div>
+            <div class="collapsible-body" id="pp" >
+              <% current_user.checklists.last.items.each do |item| %>
+              <span><%= item.iname %> <br></span>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    <% end %>
   </div>
+  <div class="col s12 m6">
+      <div id="list" class="">
+        <h4><i class="material-icons">filter_drama</i><%= current_user.checklists.last.destination %></h4> <br>
+        <div class="card-panel teal"> <% j = '10d'  %>
+
+          <span class="white-text">Temp: <%= @temp.round %></span> <br>
+          <span class="white-text">Today's Forecast:  <%= @description %> </span>
+        </div>
+      </div>
+  </div>
+<div class="time-box">
+
+  <p id="demo" ></p>
+
 </div>
-<% end %>
-
-
-
+</div>
 <!-- Archive Card Venice-->
 
 <div class="row">
@@ -114,8 +130,8 @@ max-height: 70px;
      <!-- <div class="col s6 offset-s6"><span class="flow-text">6-columns (offset-by-6)</span></div> -->
      <div class="card  purple darken-4">
        <div class="card-content white-text">
-         <span class="card-title"><%= @venue_one %></span>
-         <img src ="<%= @image_one %>">
+         <span class="card-title"><%= @venue_two %></span>
+         <img src ="<%= @image_two %>">
        </div>
        <div class="card-action">
          <a href="#">Show</a>
@@ -127,8 +143,8 @@ max-height: 70px;
    <div class="col s12 m4">
      <div class="card  purple darken-4">
        <div class="card-content white-text">
-         <span class="card-title"><%= @venue_two %></span>
-         <img src ="<%= @image_two %>">
+         <span class="card-title"><%= @venue_three %></span>
+         <img src ="<%= @image_three %>">
        </div>
        <div class="card-action">
          <a href="#">Show</a>

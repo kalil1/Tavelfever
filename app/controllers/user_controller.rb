@@ -18,11 +18,14 @@ class UserController < ApplicationController
   def show
 
     @user = User.find_by(params[:id])
-    @weather = OpenWeatherApi.new("dae8d10e4ffe898434f2932fc31d48d2")
-    @weather = @weather.get_weather('miami')['weather'][0]['description']
-    @forecast =
-    @temp =
-    
+    @weather = OpenWeatherApi.new("dae8d10e4ffe898434f2932fc31d48d2").get_weather(current_user.checklists.last.destination)
+
+    @description = @weather['weather'][0]['description']
+    @icon = @weather['weather'][0]['icon']
+    @temp = @weather['main']['temp']
+
+    # @temp = @weather.get_weather('miami')['weather'][0]['description']
+
 
 
 
@@ -67,7 +70,7 @@ class UserController < ApplicationController
       # End of destination scrape
 
       @cityQuery = @cities.sample
-      cat = "skyline"
+      cat = "Miami"
 
       if @cities.include? @@citySearch
         @cityQuery = @@citySearch
@@ -100,13 +103,18 @@ class UserController < ApplicationController
       end
 
       # Get two random attractions and give them their own variables
-      @venues = @venue.sample(2)
+      @venues = @venue.sample(3)
       @venue_one = @venues[0]
       @venue_two = @venues[1]
+      @venue_three = @venues[2]
+
 
       # Index of random photo to grab correct picture
       @index_one = @venue.index(@venue_one)
       @index_two = @venue.index(@venue_two)
+      @index_two = @venue.index(@venue_two)
+      @index_three = @venue.index(@venue_three)
+
 
       images = attrDom.css('img.lazy')
 
@@ -118,6 +126,8 @@ class UserController < ApplicationController
       # Select image link based on index of random photo
       @image_one = @image[@index_one]
       @image_two = @image[@index_two]
+      @image_three = @image[@index_three]
+
       # End of attractions scrape
 
       # # Start of Flickr API

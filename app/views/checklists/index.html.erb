@@ -6,42 +6,63 @@
 
 <br>
 <br>
+<div class="row">
 
-    <!-- collapsible -->
 
-      <div id="list" class="">
-        <div style="width:50%">
-          <h4>Name of Trip, Destination</h4> <br>
-          <ul class="collapsible" data-collapsible="accordion">
-            <li>
-              <div class="collapsible-header"><i class="far fa-file"></i>Documents</div>
-              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="fas fa-suitcase"></i>Basics</div>
-              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="fas fa-shower"></i> Toiletry</div>
-              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="fas fa-fire"></i> Camping</div>
-              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="fas fa-sun"></i> Beach</div>
-              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="fas fa-bicycle"></i> Biking</div>
-              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    <i class="fal fa-bath"></i>
 
+  <div class="col s12 m6">
+    <div id="list" class="">
+      <h4><i class="material-icons">filter_drama</i><%= current_user.checklists.last.list_name %></h4> <br>
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="far fa-file"></i>Documents</div>
+          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="fas fa-suitcase"></i>Basics</div>
+          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="fas fa-shower"></i> Toiletry</div>
+          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="fas fa-fire"></i> </div>
+          <div class="collapsible-body" id="pp" >
+            <% current_user.checklists.last.items.each do |item| %>
+            <span><%= item.iname %> <br></span>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+
+<div class="col s12 m6">
+
+  <div id="list" class="">
+    <div>
+      <h4>Name of Trip, Destination</h4> <br>
+      <ul class="collapsible" data-collapsible="accordion">
+        <% current_user.checklists.each do |list| %>
+        <li>
+          <div class="collapsible-header"><i class="far fa-file"></i><%=  list.list_name %></div>
+          <div class="collapsible-body"><span></span></div>
+        </li>
+        <% end %>
+    </div>
+  </div>
+  <i class="fal fa-bath"></i>
+
+</div>
+
+
+
+
+
+  </div>
     <!-- end collapsible -->
 
 
