@@ -15,9 +15,9 @@
     background-color: white;
     color: #333;
     text-align: center;
-    border-radius: 19px;
+    border-radius: 25px;
     padding: 5px 0;
-    height: 85px;
+    height: 65px;
 
     /* Position the tooltip */
     position: absolute;
@@ -29,7 +29,7 @@
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
-    height: 250px;
+    height: 150px;
 }
 
 img.tooltiptext {
