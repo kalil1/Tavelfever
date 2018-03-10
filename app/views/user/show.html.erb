@@ -43,11 +43,16 @@ img {
     width: 100%;
 }
 
-.pp{
+#pp{
+  background-color: lightblue;
+  height: 110px;
+  overflow: auto;
 font-style: italic;
-max-height: 70px;
 }
-.time-box {
+#time-box {
+  left: 0px;
+  width: 445px;
+  height: 95px;
   border-color: white;
 }
 </style>
@@ -94,20 +99,22 @@ max-height: 70px;
     <% end %>
   </div>
   <div class="col s12 m6">
-      <div id="list" class="">
         <h4><i class="material-icons">filter_drama</i><%= current_user.checklists.last.destination %></h4> <br>
         <div class="card-panel teal"> <% j = '10d'  %>
 
           <span class="white-text">Temp: <%= @temp.round %></span> <br>
           <span class="white-text">Today's Forecast:  <%= @description %> </span>
         </div>
+
+
+
+      <div id="time-box"  class="card  purple darken-4">
+
+        <span><h4> Your Trip Starts In - <h5 id="demo" ></h5></h4></span>
       </div>
+
   </div>
-<div class="time-box">
 
-  <p id="demo" ></p>
-
-</div>
 </div>
 <!-- Archive Card Venice-->
 
@@ -198,8 +205,7 @@ var x = setInterval(function() {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
 
-    document.getElementById("demo").innerHTML = days + "days " + hours + "h "
-    + minutes + "m " + seconds + "s ";
+    document.getElementById("demo").innerHTML = days + "days " + hours + "h ";
 
 
     if (distance < 0) {
