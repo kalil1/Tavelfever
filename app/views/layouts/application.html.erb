@@ -23,7 +23,33 @@
 
   </head>
 
+
+
+
+
+
 <style media="screen">
+
+
+/* .image-cropper {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+img {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+} */
+
+
+
+
+
 .circular--square {
 border-radius: 50%;
   display: block;
@@ -56,11 +82,13 @@ width: 40%;
         <a href="/" class="brand-logo">TravelFever</a>
         <ul class="right hide-on-med-and-down">
           <% if user_signed_in? %>
+
+          <!-- user logged in-->
           <li  ><div class="tooltip"><%= current_user.first_name %>
             <div class="tooltiptext">
                 <p>
                   <%= image_tag current_user.avatar.url(:avatar_show), class: "circular--square" %>
-                  <%= current_user.last_name %>, <%= current_user.first_name %> <br>
+                   <%= current_user.first_name %>  <%= current_user.last_name %> <br>
                   <%= current_user.email %>
                    </p>
                   </div>
