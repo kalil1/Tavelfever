@@ -12,7 +12,11 @@ class ChecklistsController < ApplicationController
   # GET /checklists/1
   # GET /checklists/1.json
   def show
+    @weather = OpenWeatherApi.new("dae8d10e4ffe898434f2932fc31d48d2").get_weather(current_user.checklists.last.destination)
 
+    @description = @weather['weather'][0]['description']
+    @icon = @weather['weather'][0]['icon']
+    @temp = @weather['main']['temp']
   end
 
   # GET /checklists/new
