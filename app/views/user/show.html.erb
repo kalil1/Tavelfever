@@ -100,10 +100,11 @@ img {
       </div>
       <div class="col s12 m6">
         <h4><i class="material-icons">filter_drama</i><%= current_user.checklists.last.destination %></h4> <br>
+
         <div class="card-panel teal"> <% j = '10d'  %>
 
 <h5>
-          <span class="white-text">F <%= @temp.round %></span> 
+          <span class="white-text">Farenheit <%= @temp.round %></span>
           <span class="white-text">Forecast:  <%= @description %> </span>
           </h5>
         </div>
