@@ -20,7 +20,7 @@ h6 {
       <h2>You haven't taken any trips</h2>
     <% else  %>
       <div id="list" class="">
-        <h4><i class="material-icons">list</i><%= current_user.checklists.last.list_name %> - <%= current_user.checklists.last.destination %></h4> <br>
+        <h4><%= current_user.checklists.last.list_name %> - <%= current_user.checklists.last.destination %></h4> <br>
         <ul class="collapsible" data-collapsible="accordion">
           <li>
             <div class="collapsible-header"><i class="far fa-file"></i>Documents</div>
