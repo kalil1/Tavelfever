@@ -104,7 +104,7 @@ h6 {
             <% @checklist.useritems.each do |item| %>
             <%= item.name %> <br>
             <% end %>
-            <%= render 'useritems/form' %>
+            <a data-target="modal1" class="waves-effect waves-light btn modal-trigger" href="#modal1">Expand</a>
           </div>
         </li>
       </ul>
@@ -124,7 +124,7 @@ h6 {
 
       <div id="time-box"  class="card-panel  teal">
 
-        <span><h6> You Took ThisTrip <%= time_ago_in_words(current_user.checklists.last.date)%> </h6></span>
+        <span><h6> You took this trip <%= time_ago_in_words(@checklist.date)%> ago </h6></span>
       </div>
 
     <!-- <div id="time-box"  class="card  purple darken-4">
@@ -137,9 +137,23 @@ h6 {
 </div>
 
 
-
-
-
+<div id="modal1" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4><%= @checklist.list_name %></h4>
+    <p><%= time_ago_in_words(@checklist.date)%> ago</p>
+    <% @checklist.items.each do |item| %>
+    <span><%= item.iname %> <br></span>
+    <% end %>
+    <% @checklist.useritems.each do |item| %>
+    <span><%= item.name %> <br></span>
+    <!-- Modal Trigger -->
+    <% end %>
+    <%= render 'useritems/form' %>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+  </div>
+</div>
 
 
 
@@ -150,28 +164,14 @@ h6 {
 
 <script type="text/javascript">
 
-$(document).ready(function() {
-  $.simpleWeather({
-    woeid: '2357536', //2357536
-    location: 'Gainsvile, FL',
-    unit: 'f',
-    success: function(weather) {
-      html = '<h2>'+weather.temp+'&deg;'+weather.units.temp+'</h2>';
-      html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-      html += '<li class="currently">'+weather.currently+'</li>';
-      html += '<li>'+weather.alt.temp+'&deg;C</li></ul>';
+$('.modal').modal({
+    dismissible: true, // Modal can be dismissed by clicking outside of the modal
+    opacity: .5, // Opacity of modal background
+    inDuration: 300, // Transition in duration
+    outDuration: 200, // Transition out duration
+    startingTop: '4%', // Starting top style attribute
+    endingTop: '10%', // Ending top style attribute
 
-      for(var i=0;i<weather.forecast.length;i++) {
-        html += '<p>'+weather.forecast[i].day+': '+weather.forecast[i].high+'</p>';
-      }
-
-      $("#weather").html(html);
-    },
-    error: function(error) {
-      $("#weather").html('<p>'+error+'</p>');
-    }
-  });
-});
-
-
+  }
+);
 </script>

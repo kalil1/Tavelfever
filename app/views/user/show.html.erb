@@ -92,7 +92,7 @@ questioned by TSA.</span></div>
               <!-- Modal Trigger -->
               <% end %>
               <% end %>
-<a data-target="modal1" class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+<a data-target="modal1" class="waves-effect waves-light btn modal-trigger" href="#modal1">Expand</a>
 
 <!-- Modal Structure -->
             </div>
@@ -208,9 +208,15 @@ questioned by TSA.</span></div>
 
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-      sp
+      <h4><%= current_user.checklists.last.list_name %></h4>
+      <p>Blah</p>
+      <% current_user.checklists.last.items.each do |item| %>
+      <span><%= item.iname %> <br></span>
+      <% current_user.checklists.last.useritems.each do |item| %>
+      <span><%= item.name %> <br></span>
+      <!-- Modal Trigger -->
+      <% end %>
+      <% end %>
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
@@ -299,7 +305,6 @@ $('.modal').modal({
     startingTop: '4%', // Starting top style attribute
     endingTop: '10%', // Ending top style attribute
 
-    complete: function() { alert('Closed'); } // Callback for Modal close
   }
 );
 </script>
