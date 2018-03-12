@@ -12,6 +12,9 @@ ul#menu li {
 
 
 <div class="user-show">
+  <% if current_user.checklists.count == 0  %>
+    <h2>You haven't taken any trips</h2>
+    <% else %>
   <div class="container">
     <p id="notice"><%= notice %></p>
 

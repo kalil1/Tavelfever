@@ -29,7 +29,9 @@
 
 
 <style media="screen">
-
+.text {
+  color: black;
+}
 
 /* .image-cropper {
     width: 100px;
@@ -48,7 +50,13 @@ img {
 
 
 
-
+footer {
+  position: relative;
+  margin-top: -150px; /* negative value of footer height */
+  height: 150px;
+  clear:both;
+  padding-top:20px;
+}
 
 .circular--square {
 border-radius: 50%;
@@ -75,7 +83,7 @@ footer {
     <ul id="dropdown1" class="dropdown-content">
       <li><%=link_to "Create", new_checklist_path %></li>
       <li> <%= link_to "Upcoming", current_user %> </li>
-      <li><%=link_to "All Trips", checklists_path %></li
+      <li><%=link_to "All Trips", checklists_path %></li>
       <li class="divider"></li>
       <!-- <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li> -->
 
@@ -93,7 +101,7 @@ footer {
             <div class="tooltiptext">
                 <p>
                   <%= image_tag current_user.avatar.url(:avatar_show), class: "circular--square" %>
-                   <h5><%= current_user.first_name %>  <%= current_user.last_name %> <br></h5>
+                   <h5 class="text"><%= current_user.first_name %>  <%= current_user.last_name %> <br></h5>
                 <!-- <p> <%= current_user.email %> </p> -->
                    </p>
                   </div>
