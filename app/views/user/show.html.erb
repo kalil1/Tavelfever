@@ -235,7 +235,7 @@ questioned by TSA.</span></div>
 <script type="text/javascript">
 
 
-var countDownDate = new Date( `<%= @date %> 08:00:00`).getTime();
+var countDownDate = new Date( `<%= current_user.checklists.last.date %> 08:00:00`).getTime();
 var x = setInterval(function() {
 
     var now = new Date().getTime();
