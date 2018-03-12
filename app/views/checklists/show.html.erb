@@ -1,3 +1,14 @@
+<style media="screen">
+
+h6 {
+  color: white;
+}
+
+
+
+</style>
+
+
 <div class="user-show">
   <div class="container">
     <p id="notice"><%= notice %></p>
@@ -23,22 +34,69 @@
     <h2>You haven't taken any trips</h2>
   <% else  %>
     <div id="list" class="">
-      <h4><i class="material-icons">filter_drama</i><%= @checklist.list_name %></h4> <br>
+      <h4><i class="material-icons">list</i><%= @checklist.list_name %> - <%= @checklist.destination %> </h4> <br>
       <ul class="collapsible" data-collapsible="accordion">
         <li>
           <div class="collapsible-header"><i class="far fa-file"></i>Documents</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+          <div class="collapsible-body" id="pp" ><span>• Passport/visa(s) – Not sure if you need a travel visa? Check here. <br>
+        • Personal ID/Student ID card – If you’re a student, some companies,<br>
+        • Frequent flyer card(s) and other loyalty program card numbers<br>
+        • Cash and credit card(s) – Call your credit card companies before you travel to inform
+        them of your travel (otherwise they might turn them off to prevent perceived fraud)<br>
+        • Health insurance cards/document(s)<br>
+        • Travel insurance information<br>
+        • Reservations and itineraries – print them and save them electronically for easy access<br>
+        • Hotel and/or tour contact information<br>
+        • Transportation tickets (plane, train, bus, car, etc.)<br>
+        • Emergency contacts and important addresses<br>
+        • Copies of all these things in case you lose your wallet<br>
+        • Guide books and maps</span></div>
         </li>
         <li>
           <div class="collapsible-header"><i class="fas fa-suitcase"></i>Basics</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+          <div class="collapsible-body" id="pp" ><span>
+            • Lightweight clothing that can be layered <br>
+            • Long-sleeved shirts <br>
+            • Sweaters or fleece jacket <br>
+        • Pants and/or shorts <br>
+        • Socks – wool socks are best for hiking <br>
+        • Comfortable walking shoes <br>
+        • Rain jacket, windbreaker or umbrella <br>
+        • Pajamas/sleepwear <br>
+        • Underwear <br>
+        • Sunglasses and glasses case <br>
+        • Dresses and/or skirts <br>
+        • Jewelry – organize in a mini cube or circlet <br>
+        • Hat or sun visor <br>
+        • Scarf or bandana <br>
+        • Swimsuit or swim trunks – consider a wet/dry organizer <br>
+        • Cell phone and charger <br>
+        • Travel speakers <br>
+        • Travel pillow, eye mask and ear plugs <br>
+        • Electric converters and adapters <br>
+        • Travel apps that will help with language, directions, and money conversion</span></div>
         </li>
         <li>
           <div class="collapsible-header"><i class="fas fa-shower"></i> Toiletry</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+          <div class="collapsible-body" id="pp" ><span>• Toothbrush, toothpaste, floss, mouthwash <br>
+        • Hair brush or comb, hair ties, barrettes/bobby pins <br>
+        • Deodorant <br>
+        • Shampoo and conditioner - <br>
+        • face wash, laundry and more <br>
+        • Sunscreen and face lotion with SPF <br>
+        • Make up packed in a wipeable wristlet <br>
+        • Face wash and/or makeup remover wipes and q-tips <br>
+        • Night time Moisturizer/Lotion <br>
+        • Lip balm with SPF and lipstick or lip gloss <br>
+        • Personal hygiene items <br>
+        • Feminine hygiene products <br>
+        • Extra contacts, solution, and contact case <br>
+        • Glasses and prescription sunglasses <br>
+        • Prescription medication with the label/script so that you can refill if needed and not be <br>
+        questioned by TSA.</span></div>
         </li>
         <li>
-          <div class="collapsible-header"><i class="fas fa-fire"></i> <h3> Activity Items </h3></div>
+          <div class="collapsible-header"><i class="fas fa-fire"></i> <h7> Activity Items </h7></div>
           <div class="collapsible-body" id="pp" >
             <% @checklist.items.each do |item| %>
             <span><%= item.iname %> <br></span>
@@ -46,6 +104,7 @@
             <% @checklist.useritems.each do |item| %>
             <%= item.name %> <br>
             <% end %>
+            <%= render 'useritems/form' %>
           </div>
         </li>
       </ul>
@@ -55,13 +114,18 @@
 <div class="col s12 m6"><h2>sorry</h2></div>
 <% else %>
 <div class="col s12 m6">
-      <h4><i class="material-icons">filter_drama</i><%= @checklist.destination %></h4> <br>
+      <h4><i class="material-icons">filter_drama</i>Weather Forecast</h4> <br>
       <div class="card-panel teal"> <% j = '10d'  %>
         <span class="white-text">Temp: <%= @temp.round %></span> <br>
         <span class="white-text">Today's Forecast:  <%= @description %> </span>
       </div>
       <% end %>
 
+
+      <div id="time-box"  class="card-panel  teal">
+
+        <span><h6> You Took ThisTrip <%= time_ago_in_words(current_user.checklists.last.date)%> </h6></span>
+      </div>
 
     <!-- <div id="time-box"  class="card  purple darken-4">
 
@@ -71,7 +135,6 @@
 </div> -->
 </div>
 </div>
-
 
 
 

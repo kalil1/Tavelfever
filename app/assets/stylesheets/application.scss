@@ -137,14 +137,13 @@ img {
 }
 
 #pp{
-  background-color: lightblue;
   height: 110px;
   overflow: auto;
 font-style: italic;
 }
 #time-box {
   left: 0px;
-  width: 445px;
+  width: inherit;
   height: 95px;
   border-color: white;
 }

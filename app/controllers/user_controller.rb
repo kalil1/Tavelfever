@@ -206,6 +206,11 @@ class UserController < ApplicationController
 
   def set_checklist
     @checklist = Checklist.where(user_id: params[:id])
+    @checklists = current_user.checklists.last
+  end
+
+  def set_useritems
+    @uitems = Useritem.where(checklist_id: @checklist.id)
   end
 
     # Use callbacks to share common setup or constraints between actions.

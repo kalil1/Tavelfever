@@ -1,0 +1,114 @@
+<div class="user-show">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
+
+
+<!-- <div class="ddd">
+
+<h3>Add Item</h3>
+
+<#%= render 'useritems/form' %>
+
+</div> -->
+
+
+
+<div class="row">
+
+
+
+
+<div class="col s12 m6">
+  <% if current_user.checklists.count == 0  %>
+    <h2>You haven't taken any trips</h2>
+  <% else  %>
+    <div id="list" class="">
+      <h4><i class="material-icons">filter_drama</i><%= @checklists.list_name %></h4> <br>
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="far fa-file"></i>Documents</div>
+          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="fas fa-suitcase"></i>Basics</div>
+          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="fas fa-shower"></i> Toiletry</div>
+          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="fas fa-fire"></i> <h3> Activity Items </h3></div>
+          <div class="collapsible-body" id="pp" >
+            <% @checklists.items.each do |item| %>
+            <span><%= item.iname %> <br></span>
+            <% end %>
+            <% @checklists.useritems.each do |item| %>
+            <%= item.name %> <br>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div> <% if @checklists.destination == nil %>
+<div class="col s12 m6"><h2>sorry</h2></div>
+<% else %>
+<div class="col s12 m6">
+      <h4><i class="material-icons">filter_drama</i><%= @checklists.destination %></h4> <br>
+      <div class="card-panel teal"> <% j = '10d'  %>
+        <span class="white-text">Temp: <%= @temp.round %></span> <br>
+        <span class="white-text">Today's Forecast:  <%= @description %> </span>
+      </div>
+      <% end %>
+
+
+    <!-- <div id="time-box"  class="card  purple darken-4">
+
+      <span><h5> Your Trip Starts In - <h5 id="demo" ></h5></h5></span>
+    </div>
+
+</div> -->
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $.simpleWeather({
+    woeid: '2357536', //2357536
+    location: 'Gainsvile, FL',
+    unit: 'f',
+    success: function(weather) {
+      html = '<h2>'+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+      html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
+      html += '<li class="currently">'+weather.currently+'</li>';
+      html += '<li>'+weather.alt.temp+'&deg;C</li></ul>';
+
+      for(var i=0;i<weather.forecast.length;i++) {
+        html += '<p>'+weather.forecast[i].day+': '+weather.forecast[i].high+'</p>';
+      }
+
+      $("#weather").html(html);
+    },
+    error: function(error) {
+      $("#weather").html('<p>'+error+'</p>');
+    }
+  });
+});
+
+
+</script>
