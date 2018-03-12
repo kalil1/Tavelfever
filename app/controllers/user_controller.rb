@@ -23,6 +23,10 @@ class UserController < ApplicationController
     @description = @weather['weather'][0]['description']
     @icon = @weather['weather'][0]['icon']
     @temp = @weather['main']['temp']
+    @humidity = @weather['main']['humidity']
+    wind = @weather['wind']['speed']
+    @wind = wind.round
+
 
     # @temp = @weather.get_weather('miami')['weather'][0]['description']
 
