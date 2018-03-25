@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TravelFever</title>
+<head>
+  <title>TravelFever</title>
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <%= csrf_meta_tags %>
+  <%= csrf_meta_tags %>
 
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <!--FONT awsome -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!--FONT awsome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-  </head>
+</head>
 
 
 
@@ -33,126 +33,92 @@
   color: black;
 }
 
-/* .image-cropper {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
-}
-
-img {
-    display: inline;
-    margin: 0 auto;
-    height: 100%;
-    width: auto;
-} */
-
-
 
 
 .circular--square {
-border-radius: 50%;
+  border-radius: 50%;
   display: block;
-margin-left: auto;
-margin-right: auto;
-width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
 }
 
 </style>
-  <!-- <style media="screen">
-    .ddd {
-      border-color: black;
-    }
-  </style> -->
 
-  <body>
+<body>
 
-    <!-- Dropdown navbar Structure materialize -->
-    <ul id="dropdown1" class="dropdown-content">
-      <li><%=link_to "Create", new_checklist_path %></li>
-      <li> <%= link_to "Upcoming", current_user %> </li>
-      <li><%=link_to "All Trips", checklists_path %></li>
-      <li class="divider"></li>
-      <!-- <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li> -->
+  <!-- Dropdown navbar Structure materialize -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><%=link_to "Create", new_checklist_path %></li>
+    <li> <%= link_to "Upcoming", current_user %> </li>
+    <li><%=link_to "All Trips", checklists_path %></li>
+    <li class="divider"></li>
+    <!-- <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li> -->
 
-    </ul>
-    <nav class="purple darken-4">
-      <div class="nav-wrapper container">
+  </ul>
+  <nav class="purple darken-4">
+    <div class="nav-wrapper container">
 
 
-        <a href="/" class="brand-logo">TravelFever</a>
-        <ul class="right hide-on-med-and-down">
-          <% if user_signed_in? %>
+      <a href="/" class="brand-logo">TravelFever</a>
+      <ul class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
 
-          <!-- user logged in-->
-          <li  ><div class="tooltip"><%= current_user.first_name %>
-            <div class="tooltiptext">
-                <p>
-                  <%= image_tag current_user.avatar.url(:avatar_show), class: "circular--square" %>
-                   <h5 class="text"><%= current_user.first_name %>  <%= current_user.last_name %> <br></h5>
-                <!-- <p> <%= current_user.email %> </p> -->
-                   </p>
-                  </div>
-          </div></li>
-  					<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-  				<% else %>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
-  					<li><%= link_to "Log In", new_user_session_path %></li>
-            <!-- <li>  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li> -->
-  				<% end %>
-          <!-- Dropdown Trigger -->
-          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">More<i class="material-icons right">dehaze</i></a></li>
-        </ul>
+        <!-- user logged in-->
+        <li  ><div class="tooltip"><%= current_user.first_name %>
+          <div class="tooltiptext">
+            <p>
+              <%= image_tag current_user.avatar.url(:avatar_show), class: "circular--square" %>
+              <h5 class="text"><%= current_user.first_name %>  <%= current_user.last_name %> <br></h5>
+              <!-- <p> <%= current_user.email %> </p> -->
+            </p>
+          </div>
+        </div></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li><%= link_to "Log In", new_user_session_path %></li>
+        <!-- <li>  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li> -->
+        <% end %>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">More<i class="material-icons right">dehaze</i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- end dropdown navbar -->
+
+  <%= yield %>
+
+
+  <!-- <div style="height: 800px"></div> -->
+
+  <!-- FOOTER -->
+  <footer class="page-footer purple darken-4">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Contact</h5>
+          <p class="grey-text text-lighten-4">travel@fever.com <br> (305) 720-2422 </p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Social</h5>
+          <ul>
+            <div style="font-size:2em; grey-text text-lighten-3 ">
+              <i class="fab fa-instagram"></i></a>
+              <i class="fab fa-facebook-square"></i></a>
+            </ul>
+          </div>
+        </div>
       </div>
-    </nav>
 
-      <!-- end dropdown navbar -->
+    </footer>
 
-<%= yield %>
-
-
-<!-- <div style="height: 800px"></div> -->
-
-      <!-- FOOTER -->
-          <footer class="page-footer purple darken-4">
-            <div class="container">
-              <div class="row">
-                <div class="col l6 s12">
-                  <h5 class="white-text">Contact</h5>
-                  <p class="grey-text text-lighten-4">travel@fever.com <br> (305) 720-2422 </p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                  <h5 class="white-text">Social</h5>
-                  <ul>
-                      <div style="font-size:2em; grey-text text-lighten-3 ">
-                    <i class="fab fa-instagram"></i></a>
-                    <i class="fab fa-facebook-square"></i></a>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="footer-copyright">
-              <div class="container">
-                © 2018 Copyright
-                <!<a class="grey-text text-lighten-4 right" href="#!">Have a great trip</a> -->
-              <!-- </div>
-            </div>  -->
-          </footer>
-
-          <!-- FOOTER END -->
+    <!-- FOOTER END -->
 
 
 
 
-
-
-    <!-- <script>
-    $(document).ready(function(){
-      $('.parallax').parallax();
-    });
-
-  </script> -->
 
   </body>
-</html>
+  </html>

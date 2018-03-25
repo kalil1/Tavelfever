@@ -2,6 +2,22 @@
 @import "materialize";
 @import "home";
 
+#pop {
+
+  height: 125px;
+}
+h6 {
+  color: white;
+}
+.pnx {
+  height: 100px;
+  width: 100px;
+}
+.card {
+  max-height: inherit;
+}
+
+
 
 .tooltip {
     position: relative;
@@ -42,24 +58,28 @@ body {
   flex-direction: column;
 }
 
+
+
+.lis {
+  max-height: 400px;
+  overflow: auto;
+}
+
+
 main {
   flex: 1 0 auto;
 }
 
 .user-show {
-  background-image: url("http://allswalls.com/images/hills-wallpaper-1.jpg");
-  min-height: 100vh;
-  height: auto !important;
-  height: 100%;
+  background-image: url("http://uhd-wallpapers.net/images/paris-colorful-sunset_308.jpeg");
+background-size: cover;
   // margin-bottom: 200px;
   // background-image: url("http://allswalls.com/images/hills-wallpaper-1.jpg")
 }
 
 .checklists-show {
-  background-image: url("http://allswalls.com/images/hills-wallpaper-1.jpg");
-  min-height: 100vh;
-  height: auto !important;
-  height: 100%;
+  background-image: url("http://uhd-wallpapers.net/images/paris-colorful-sunset_308.jpeg");
+  background-size: cover;
   // margin-bottom: 200px;
   // background-image: url("http://allswalls.com/images/hills-wallpaper-1.jpg")
 }

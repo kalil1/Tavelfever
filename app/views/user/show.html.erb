@@ -1,24 +1,10 @@
-<style media="screen">
-#pop {
-
-  height: 125px;
-}
-h6 {
-  color: white;
-}
-.pnx {
-  height: 100px;
-  width: 100px;
-}
-
-</style>
-
-
 
 <div class="user-show">
 
 <div class="container">
 <div class="row">
+
+
 
   <div class="col s12 m6">
     <% if current_user.checklists.count == 0  %>
@@ -29,75 +15,41 @@ h6 {
         <ul class="collapsible" data-collapsible="accordion">
           <li>
             <div class="collapsible-header"><i class="far fa-file"></i>Documents</div>
-            <div class="collapsible-body" id="pp" ><span>• Passport/visa(s) – Not sure if you need a travel visa? Check here. <br>
-• Personal ID/Student ID card – If you’re a student, some companies,<br>
-• Frequent flyer card(s) and other loyalty program card numbers<br>
-• Cash and credit card(s) – Call your credit card companies before you travel to inform
-them of your travel (otherwise they might turn them off to prevent perceived fraud)<br>
-• Health insurance cards/document(s)<br>
-• Travel insurance information<br>
-• Reservations and itineraries – print them and save them electronically for easy access<br>
-• Hotel and/or tour contact information<br>
-• Transportation tickets (plane, train, bus, car, etc.)<br>
-• Emergency contacts and important addresses<br>
-• Copies of all these things in case you lose your wallet<br>
-• Guide  s and maps</span></div>
+            <div class="collapsible-body" id="pp" >
+              <% @document.each do |item| %>
+              <span> <%= item %> <br> </span>
+              <% end %>
+            </div>
           </li>
           <li>
             <div class="collapsible-header"><i class="fas fa-suitcase"></i>Basics</div>
-            <div class="collapsible-body" id="pp" ><span>
-              • Lightweight clothing that can be layered <br>
-              • Long-sleeved shirts <br>
-              • Sweaters or fleece jacket <br>
-• Pants and/or shorts <br>
-• Socks – wool socks are best for hiking <br>
-• Comfortable walking shoes <br>
-• Rain jacket, windbreaker or umbrella <br>
-• Pajamas/sleepwear <br>
-• Underwear <br>
-• Sunglasses and glasses case <br>
-• Dresses and/or skirts <br>
-• Jewelry – organize in a mini cube or circlet <br>
-• Hat or sun visor <br>
-• Scarf or bandana <br>
-• Swimsuit or swim trunks – consider a wet/dry organizer <br>
-• Cell phone and charger <br>
-• Travel speakers <br>
-• Travel pillow, eye mask and ear plugs <br>
-• Electric converters and adapters <br>
-• Travel apps that will help with language, directions, and money conversion</span></div>
+            <div class="collapsible-body" id="pp" >
+              <% @basics.each do |item| %>
+              <span> <%= item %> <br> </span>
+              <% end %>
+            </div>
           </li>
           <li>
             <div class="collapsible-header"><i class="fas fa-shower"></i> Toiletry</div>
-            <div class="collapsible-body" id="pp" ><span>• Toothbrush, toothpaste, floss, mouthwash <br>
-• Hair brush or comb, hair ties, barrettes/bobby pins <br>
-• Deodorant <br>
-• Shampoo and conditioner - <br>
-• face wash, laundry and more <br>
-• Sunscreen and face lotion with SPF <br>
-• Make up packed in a wipeable wristlet <br>
-• Face wash and/or makeup remover wipes and q-tips <br>
-• Night time Moisturizer/Lotion <br>
-• Lip balm with SPF and lipstick or lip gloss <br>
-• Personal hygiene items <br>
-• Feminine hygiene products <br>
-• Extra contacts, solution, and contact case <br>
-• Glasses and prescription sunglasses <br>
-• Prescription medication with the label/script so that you can refill if needed and not be <br>
-questioned by TSA.</span></div>
+            <div class="collapsible-body" id="pp" >
+              <% @toiletry.each do |item| %>
+              <span> <%= item %> <br> </span>
+              <% end %>
+            </div>
           </li>
           <li>
             <div class="collapsible-header"><i class="fas fa-fire"></i> Activites </div>
 
             <div class="collapsible-body" id="pp" >
               <% current_user.checklists.last.items.each do |item| %>
-              <span><%= item.iname %> <br></span>
+              <span><%= item.iname %>  </span>
               <% current_user.checklists.last.useritems.each do |item| %>
-              <span><%= item.iname %> <br></span>
+              <span><%= item.iname %>  </span>
               <!-- Modal Trigger -->
               <% end %>
               <% end %>
-<a data-target="modal1" class="waves-effect waves-light btn modal-trigger" href="#modal1">Expand</a>
+              <a data-target="modal1" class="waves-effect waves-light btn modal-trigger"
+              href="#modal1">Expand</a>
 
 <!-- Modal Structure -->
             </div>
@@ -107,12 +59,12 @@ questioned by TSA.</span></div>
     <% end %>
   </div>
   <div class="col s12 m6">
-        <h4><i class="material-icons">filter_drama</i> Weather Forecast</h4> <br>
+        <h4><i class="material-icons">filter_drama</i> Weather Forecast</h4>
         <div id="pop" class="card-panel yellow darken-3">
           <div class="row">
           <div class="col s6 "><span class="flow-text"> <img class="pnx" src="http://openweathermap.org/img/w/<%= @icon %>.png" alt=""> </span></div>
-      <div class="col s6 "><span class="white-text">Temp: <%= @temp.round %></span> <br>
-      <span class="white-text">Forecast:  <%= @description.capitalize %> </span> <br>
+      <div class="col s6 "><span class="white-text">Temp: <%= @temp.round %></span>
+      <span class="white-text">Forecast:  <%= @description.capitalize %> </span>
     <span class="white-text">Wind Speed:  <%= @wind %> </span> <br>
   <span class="white-text">Humidity:  <%= @humidity %> </span> </div>
         </div>
@@ -231,90 +183,5 @@ questioned by TSA.</span></div>
     </div>
   </div>
 
-
-<script type="text/javascript">
-
-
-var countDownDate = new Date( `<%= current_user.checklists.last.date %> 08:00:00`).getTime();
-var x = setInterval(function() {
-
-    var now = new Date().getTime();
-
-    var distance = countDownDate - now;
-
-
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-
-    document.getElementById("demo").innerHTML = days + "days " + hours + "h ";
-
-
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "WE MADE IT!";
-    }
-}, 1000);
-
-
-
-function myFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-
-// When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-
-</script>
-
-<!-- <script type="text/javascript">
-
-$(function() {
-$(".card").draggable();
-$(".block").on("click", function() {
-$(".info").toggleClass("active");
-});
-});
-
-</script>
-
-
-<script type="text/javascript">
-
-$(document).ready(function(){
-  // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-  $('.modal').modal();
-});
-</script> -->
-
-<script type="text/javascript">
-
-$('.modal').modal({
-    dismissible: true, // Modal can be dismissed by clicking outside of the modal
-    opacity: .5, // Opacity of modal background
-    inDuration: 300, // Transition in duration
-    outDuration: 200, // Transition out duration
-    startingTop: '4%', // Starting top style attribute
-    endingTop: '10%', // Ending top style attribute
-
-  }
-);
-</script>
 
 <script type="text/JavaScript" src="css3-multi-column.js"></script>

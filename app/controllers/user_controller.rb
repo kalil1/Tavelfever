@@ -2,6 +2,7 @@ class UserController < ApplicationController
   before_action :set_checklist, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+
   @@citySearch = true
   @@cityCat = true
 
@@ -29,24 +30,6 @@ class UserController < ApplicationController
 
 
     # @temp = @weather.get_weather('miami')['weather'][0]['description']
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @date = @user.checklists.last.date
 
     # @weather = OpenWeatherApi.new('dae8d10e4ffe898434f2932fc31d48d2').get_weather(@user.checklists.last.destination)['main']

@@ -3,140 +3,108 @@
 
 <div class="user-show">
   <% if current_user.checklists.count == 0  %>
-    <h2>You haven't taken any trips</h2>
-    <% else %>
+  <h2>You haven't taken any trips</h2>
+  <% else %>
   <div class="container">
     <p id="notice"><%= notice %></p>
 
 
-<br>
-<br>
-<div class="row">
+    <br>
+    <br>
+    <div class="row">
 
 
 
-  <div class="col s12 m6">
-    <div id="list" class="">
-      <h4> Most Recent Trip - </h4> <%= current_user.checklists.last.list_name %> <br>
-      <ul class="collapsible" data-collapsible="accordion">
-        <li>
-          <div class="collapsible-header"><i class="far fa-file"></i>Documents</div>
-          <div class="collapsible-body" id="pp" ><span>• Passport/visa(s) – Not sure if you need a travel visa? Check here. <br>
-        • Personal ID/Student ID card – If you’re a student, some companies,<br>
-        • Frequent flyer card(s) and other loyalty program card numbers<br>
-        • Cash and credit card(s) – Call your credit card companies before you travel to inform
-        them of your travel (otherwise they might turn them off to prevent perceived fraud)<br>
-        • Health insurance cards/document(s)<br>
-        • Travel insurance information<br>
-        • Reservations and itineraries – print them and save them electronically for easy access<br>
-        • Hotel and/or tour contact information<br>
-        • Transportation tickets (plane, train, bus, car, etc.)<br>
-        • Emergency contacts and important addresses<br>
-        • Copies of all these things in case you lose your wallet<br>
-        • Guide books and maps</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="fas fa-suitcase"></i>Basics</div>
-          <div class="collapsible-body" id="pp" ><span>
-            • Lightweight clothing that can be layered <br>
-            • Long-sleeved shirts <br>
-            • Sweaters or fleece jacket <br>
-        • Pants and/or shorts <br>
-        • Socks – wool socks are best for hiking <br>
-        • Comfortable walking shoes <br>
-        • Rain jacket, windbreaker or umbrella <br>
-        • Pajamas/sleepwear <br>
-        • Underwear <br>
-        • Sunglasses and glasses case <br>
-        • Dresses and/or skirts <br>
-        • Jewelry – organize in a mini cube or circlet <br>
-        • Hat or sun visor <br>
-        • Scarf or bandana <br>
-        • Swimsuit or swim trunks – consider a wet/dry organizer <br>
-        • Cell phone and charger <br>
-        • Travel speakers <br>
-        • Travel pillow, eye mask and ear plugs <br>
-        • Electric converters and adapters <br>
-        • Travel apps that will help with language, directions, and money conversion</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="fas fa-shower"></i> Toiletry</div>
-          <div class="collapsible-body" id="pp" ><span>• Toothbrush, toothpaste, floss, mouthwash <br>
-        • Hair brush or comb, hair ties, barrettes/bobby pins <br>
-        • Deodorant <br>
-        • Shampoo and conditioner - <br>
-        • face wash, laundry and more <br>
-        • Sunscreen and face lotion with SPF <br>
-        • Make up packed in a wipeable wristlet <br>
-        • Face wash and/or makeup remover wipes and q-tips <br>
-        • Night time Moisturizer/Lotion <br>
-        • Lip balm with SPF and lipstick or lip gloss <br>
-        • Personal hygiene items <br>
-        • Feminine hygiene products <br>
-        • Extra contacts, solution, and contact case <br>
-        • Glasses and prescription sunglasses <br>
-        • Prescription medication with the label/script so that you can refill if needed and not be <br>
-        questioned by TSA.</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="fas fa-fire"></i> Activites </div>
-          <div class="collapsible-body" id="pp" >
-            <% current_user.checklists.last.items.each do |item| %>
-            <span><%= item.iname %> <br></span>
-            <% end %>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <%= link_to 'New Trip', new_checklist_path, class: "waves-effect waves-light btn purple darken-4" %>
-  </div>
-
-
-<div class="col s12 m6">
-
-  <div id="list" class="">
-    <div>
-      <h4>All Trips</h4> <br>
-      <ul class="collapsible" data-collapsible="accordion">
-        <% current_user.checklists.each do |list| %>
-        <li>
-          <div class="collapsible-header"><i class="fas fa-suitcase"></i>
-            <ul id="menu">
-            <li><%=  list.list_name %></li>
+      <div class="col s12 m6">
+        <div id="list" class="">
+          <h4> Most Recent Trip - </h4> <%= current_user.checklists.last.list_name %> <br>
+          <ul class="collapsible" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header"><i class="far fa-file"></i>Documents</div>
+              <div class="collapsible-body" id="pp" >
+                <% @document.each do |item| %>
+                <span> <%= item %> <br> </span>
+                <% end %>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="fas fa-suitcase"></i>Basics</div>
+              <div class="collapsible-body" id="pp" >
+                <% @basics.each do |item| %>
+                <span> <%= item %> <br> </span>
+                <% end %>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="fas fa-shower"></i> Toiletry</div>
+              <div class="collapsible-body" id="pp" >
+                <% @toiletry.each do |item| %>
+                <span> <%= item %> <br> </span>
+                <% end %>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="fas fa-fire"></i> Activites </div>
+              <div class="collapsible-body" id="pp" >
+                <% current_user.checklists.last.items.each do |item| %>
+                <span><%= item.iname %> <br></span>
+                <% end %>
+                <% current_user.checklists.last.useritems.each do |item| %>
+                <%= item.name %> <br>
+                <% end %>
+              </div>
+            </li>
           </ul>
+        </div>
+
+        <%= link_to 'New Trip', new_checklist_path, class: "waves-effect waves-light btn purple darken-4" %>
+      </div>
+
+
+      <div class=" col s12 m6">
+        <h4>All Trips</h4> <br>
+
+        <div id="list" class="">
+          <div class="lis" >
+            <ul class="collapsible" data-collapsible="accordion">
+              <% current_user.checklists.each do |list| %>
+              <li>
+                <div class="collapsible-header"><i class="fas fa-suitcase"></i>
+                  <ul id="menu">
+                    <li><%=  list.list_name %></li>
+                  </ul>
 
 
 
 
+                </div>
+                <div id="pp" class="collapsible-body"> <% list.items.each do |item| %>
+                  <span> <%= item.iname %> <br></span>
+                  <% end %>
+                  <%= link_to 'Show', list, class: "waves-effect waves-light btn purple darken-4" %>
+                  <%= link_to 'Edit', edit_checklist_path(list), class: "waves-effect waves-light btn purple darken-4" %>
+                  <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-light btn purple darken-4" %>
+                </div>
+              </li>
+              <% end %>
+            </div>
           </div>
-          <div class="collapsible-body"> <% list.items.each do |item| %>
-            <span> <%= item.iname %> <br></span>
-            <% end %>
-            <%= link_to 'Show', list, class: "waves-effect waves-light btn purple darken-4" %>
-            <%= link_to 'Edit', edit_checklist_path(list), class: "waves-effect waves-light btn purple darken-4" %>
-            <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-light btn purple darken-4" %>
-          </div>
-          </li>
-          <% end %>
-  </div>
-</div>
 
 
 
 
 
-  </div>
-    <!-- end collapsible -->
+        </div>
+        <!-- end collapsible -->
 
 
 
 
-<!-- dropdown proper data   -->
+        <!-- dropdown proper data   -->
 
 
 
 
-  </div>
- <% end %>
-</div>
+      </div>
+      <% end %>
+    </div>
