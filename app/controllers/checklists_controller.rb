@@ -7,6 +7,7 @@ class ChecklistsController < ApplicationController
   # GET /checklists.json
   def index
     @checklists = Checklist.all
+    @activities = Activity.all
   end
 
   # GET /checklists/1

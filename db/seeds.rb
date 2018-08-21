@@ -120,8 +120,4 @@ items = [
 		Item.create( :iname => country[0], :activity_id => country[1] )
 	end
 
-
-
-
-
 p "Done"
