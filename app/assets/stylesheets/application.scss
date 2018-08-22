@@ -171,3 +171,18 @@ font-style: italic;
 }
 
 // end user controller
+
+// layout
+.text {
+  color: black;
+}
+
+
+
+.circular--square {
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}

@@ -6,7 +6,6 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-Paperclip.options[:command_path] = "/usr/bin/convert"
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -37,6 +36,7 @@ Paperclip.options[:command_path] = "/usr/bin/convert"
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
+  Paperclip.options[:command_path] = "/usr/bin/convert"
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
@@ -54,5 +54,5 @@ Paperclip.options[:command_path] = "/usr/bin/convert"
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  
+
 end
