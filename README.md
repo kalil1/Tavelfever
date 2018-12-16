@@ -9,7 +9,7 @@ TravelFever is a one of my personal projects. This application helps users prepa
 ![TRAVELFEVER](https://github.com/kalil1/TavelFever/blob/master/app/assets/images/nav-dropdown.png)
 ![TRAVELFEVER](https://github.com/kalil1/TavelFever/blob/master/app/assets/images/home-profile.png)
 * users can upload a profile picture
-![TRAVELFEVER](https://github.com/kalil1/TavelFever/blob/master/app/assets/images/create.png)
+![TRAVELFEVER](https://github.com/kalil1/Tavelfever/blob/master/app/assets/images/create.png)
 ![TRAVELFEVER](https://github.com/kalil1/TavelFever/blob/master/app/assets/images/create-calender.png)
 * When creating a new checklist for your trip you'll have to input a name & destination for the trip and select what type of activates you'll be getting into(if nothing is selected just a list of the necessary documents and items needed for flight).  
 ![TRAVELFEVER](https://github.com/kalil1/TavelFever/blob/master/app/assets/images/NYtrip.png)
