@@ -8,10 +8,11 @@ end
 
 
 gem 'flickraw'
+
+gem 'mini_racer', platforms: :ruby
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 gem 'paperclip', '~> 5.2', '>= 5.2.1'
 
@@ -53,6 +54,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'sqlite3'
 end
 group :production do
   gem 'pg'
