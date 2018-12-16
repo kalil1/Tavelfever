@@ -54,6 +54,10 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 end
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 group :development do

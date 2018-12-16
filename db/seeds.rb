@@ -119,5 +119,4 @@ items = [
 	items.each do |country|
 		Item.create( :iname => country[0], :activity_id => country[1] )
 	end
-st
 p "Done"
