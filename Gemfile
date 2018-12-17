@@ -56,6 +56,10 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'sqlite3'
 end
+group :assets do
+ gem 'turbo-sprockets-rails3'
+end
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
