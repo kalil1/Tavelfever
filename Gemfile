@@ -7,6 +7,8 @@ end
 
 
 
+gem 'activeadmin', '~> 1.0.0.pre4'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'flickraw'
 
 gem 'mini_racer', platforms: :ruby
@@ -64,8 +66,6 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
-gem 'activeadmin', '~> 1.0.0.pre4'
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
